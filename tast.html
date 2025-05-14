@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ANTA Basketball Shoes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .icons i {
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+
+    .burger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
+      padding: 2rem;
+    }
+
+    aside {
+      width: 250px;
+      border-right: 1px solid #ddd;
+      padding-right: 1rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      height: fit-content;
+    }
+
+    main {
+      flex: 1;
+      padding-left: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .filters h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .sort-box {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .sort-box select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #000;
+        width: 100%;
+        padding: 1rem 0;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .burger {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ANTA</div>
+  <nav id="navMenu">
+    <a href="#">New Arrivals</a>
+    <a href="#">Basketball</a>
+    <a href="#">Running</a>
+    <a href="#">Trail</a>
+    <a href="#">Kyrie Irving</a>
+    <a href="#">Sale</a>
+  </nav>
+  <div class="icons">
+    <i class="fas fa-search"></i>
+    <i class="fas fa-shopping-cart"></i>
+    <i class="fas fa-user"></i>
+    <i class="fas fa-bars burger" onclick="toggleMenu()"></i>
+  </div>
+</header>
+
+<div class="container">
+  <aside>
+    <h2><i class="fas fa-filter"></i> Filter</h2>
+    <div class="filters">
+      <h3>Gender</h3>
+      <label><input type="checkbox" value="Men" onchange="applyFilters()"> Men</label><br>
+      <label><input type="checkbox" value="Women" onchange="applyFilters()"> Women</label><br>
+      <label><input type="checkbox" value="Unisex" onchange="applyFilters()"> Unisex</label><br>
+
+      <h3>Age Group</h3>
+      <label><input type="checkbox" value="Adults" onchange="applyFilters()"> Adults</label><br>
+      <label><input type="checkbox" value="Kids" onchange="applyFilters()"> Kids</label><br>
+    </div>
+  </aside>
+
+  <main>
+    <h1>Basketball</h1>
+    <p>Discover the elite performance and style of ANTA basketball shoes. Enjoy your shoes with cutting-edge technology and unparalleled comfort.</p>
+
+    <div class="sort-box">
+      <label>Sort By:
+        <select id="sortSelect" onchange="applyFilters()">
+          <option value="featured">Featured</option>
+          <option value="priceLow">Price Low to High</option>
+          <option value="priceHigh">Price High to Low</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="productGrid" class="product-grid"></div>
+  </main>
+</div>
+
+<script>
+  const products = [
+    { id: 1, name: 'ANTA Red Blaze', price: 150, gender: 'Men', age: 'Adults', img: 'https://i.ibb.co/Z8byzmp/red-shoe.png' },
+    { id: 2, name: 'ANTA Ice Thunder', price: 180, gender: 'Unisex', age: 'Adults', img: 'https://i.ibb.co/BL0LMXx/blue-shoe.png' },
+    { id: 3, name: 'ANTA Fire Storm', price: 140, gender: 'Women', age: 'Kids', img: 'https://i.ibb.co/VBWWT2B/yellow-shoe.png' },
+    { id: 4, name: 'ANTA Sky Wave', price: 160, gender: 'Men', age: 'Kids', img: 'https://i.ibb.co/3YbFHpL/white-shoe.png' }
+  ];
+
+  function renderProducts(filtered = products) {
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = '';
+
+    filtered.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <div style="padding: 1rem;">
+          <h3>${p.name}</h3>
+          <p>$${p.price}</p>
+        </div>
+      `;
+      card.onclick = () => alert(`Clicked: ${p.name}`);
+      grid.appendChild(card);
+    });
+  }
+
+  function applyFilters() {
+    const checkedGender = Array.from(document.querySelectorAll('.filters input[type="checkbox"][value^="Men"], .filters input[type="checkbox"][value^="Women"], .filters input[type="checkbox"][value^="Unisex"]'))
+      .filter(cb => cb.checked)
+      .map(cb => cb.value);
+
+    const checkedAge = Array.from(document.querySelectorAll('.filters input[type="checkbox"][value^="Adults"], .filters input[type="checkbox"][value^="Kids"]'))
+      .filter(cb => cb.checked)
+      .map(cb => cb.value);
+
+    let filtered = products.filter(p => {
+      return (checkedGender.length === 0 || checkedGender.includes(p.gender)) &&
+             (checkedAge.length === 0 || checkedAge.includes(p.age));
+    });
+
+    const sortVal = document.getElementById('sortSelect').value;
+    if (sortVal === 'priceLow') {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (sortVal === 'priceHigh') {
+      filtered.sort((a, b) => b.price - a.price);
+    }
+
+    renderProducts(filtered);
+  }
+
+  function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('show');
+  }
+
+  renderProducts();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tasbih Digital Estetis</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      text-align: center;
+      padding: 40px 20px;
+      color: #102a43;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+
+    #counter {
+      font-size: 64px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .circle-button {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: none;
+      background-color: #486581;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-button:hover {
+      background-color: #334e68;
+      transform: scale(1.05);
+    }
+
+    .circle-button:active {
+      transform: scale(0.95);
+    }
+
+    #history {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    #history h2 {
+      margin-bottom: 10px;
+    }
+
+    #historyList {
+      list-style-type: none;
+      padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+
+    #historyList li {
+      background-color: #e1e8ed;
+      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Tasbih Digital Estetis</h1>
+  <div id="counter">0</div>
+  <div class="button-group">
+    <button class="circle-button" onclick="increment()">+</button>
+    <button class="circle-button" onclick="decrement()">−</button>
+    <button class="circle-button" onclick="resetCounter()">↺</button>
+    <button class="circle-button" onclick="saveCount()">💾</button>
+  </div>
+
+  <div id="history">
+    <h2>Riwayat Dzikir</h2>
+    <ul id="historyList"></ul>
+  </div>
+
+  <script>
+    let count = 0;
+
+    // Load saved count from localStorage
+    if (localStorage.getItem('currentCount')) {
+      count = parseInt(localStorage.getItem('currentCount'));
+      document.getElementById('counter').innerText = count;
+    }
+
+    // Load history from localStorage
+    let history = JSON.parse(localStorage.getItem('dzikirHistory')) || [];
+    renderHistory();
+
+    function increment() {
+      count++;
+      document.getElementById('counter').innerText = count;
+      localStorage.setItem('currentCount', count);
+    }
+
+    function decrement() {
+      if (count > 0) {
+        count--;
+        document.getElementById('counter').innerText = count;
+        localStorage.setItem('currentCount', count);
+      }
+    }
+
+    function resetCounter() {
+      if (confirm('Apakah Anda yakin ingin mereset hitungan?')) {
+        count = 0;
+        document.getElementById('counter').innerText = count;
+        localStorage.setItem('currentCount', count);
+      }
+    }
+
+    function saveCount() {
+      const now = new Date();
+      const entry = {
+        date: now.toLocaleDateString('id-ID'),
+        time: now.toLocaleTimeString('id-ID'),
+        count: count
+      };
+      history.push(entry);
+      localStorage.setItem('dzikirHistory', JSON.stringify(history));
+      renderHistory();
+
+      // Hitung total dzikir hari ini
+      const today = now.toLocaleDateString('id-ID');
+      const totalToday = history
+        .filter(item => item.date === today)
+        .reduce((sum, item) => sum + item.count, 0);
+
+      alert(`Dzikir disimpan!\nHari ini Anda telah berdzikir sebanyak ${totalToday} kali.`);
+    }
+
+    function renderHistory() {
+      const historyList = document.getElementById('historyList');
+      historyList.innerHTML = '';
+      history.forEach((entry) => {
+        const li = document.createElement('li');
+        li.textContent = `${entry.date} ${entry.time} - ${entry.count} kali`;
+        historyList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Kitab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="isi">
+        <button class="back-btn" onclick="history.back()">Kembali</button>
+    </div>
+    
+  <div class="select-container">
+    <label for="babSelect">Pilih Bab:</label>
+    <select id="babSelect" onchange="showBab(this.value)">
+      <option value="">-- Pilih Bab --</option>
+      <option value="1">PENGERTIAN ILMU DAN FIQIH SERTA KEUTAMAANNYA</option>
+      <option value="2">Keutamaan Ilmu</option>
+      <option value="3">Belajar Ilmu Akhlaq</option>
+      <option value="4">Tanda-tanda Baligh (Dewasa)</option>
+      <option value="5">Bersuci Memakai Batu</option>
+      <option value="6">Rukun Wudhu</option>
+      <option value="7">Air terbagi kepada dua macam</option>
+      <option value="8">Yang mewajibkan mandi</option>
+      <option value="9">Fardhu mandi  wajib </option>
+      <option value="10">Yang membatalkan wudhu</option>
+      <option value="11">Larangan orang yang berhadats kecil </option>
+      <option value="12">Larangan orang yang berhadats besar</option>
+      <option value="13">Larangan perempuan yang sedang haidh</option>
+    </select>
+  </div>
+  <div class="kelompok">
+    <h1 id="babTitle">Pilih Bab</h1>
+    <p id="babContent"></p>
+    <p id="babContent1"></p>
+    <ul id="babPoints"></ul>
+  </div>
+  <script>
+    function showBab(id) {
+      var title = '';
+      var content = '';
+      var content1 = '';
+      var points = [];
+
+      if (id === '1') {
+        title = 'A: Kewajiban Belajar.';
+        content = 'Rasulullah saw bersabda : Menuntut ilmu wajib bagi muslim laki-laki dan muslim perempuan.Perlu diketahui bahwa, kewajiban menuntut ilmu bagi muslim laki-laki dan perempuan ini tidak untuk sembarang ilmu, tapi terbatas pada ilmu agama, dan ilmu yang menerangkan cara bertingkah laku atau bermuamalah dengan sesama manusia. Sehingga ada yang berkata,“Ilmu yang paling utama ialah ilmu Hal. Dan perbuatan yang paling mulia adalah menjaga perilaku.” Yang dimaksud ilmu hal ialah ilmu agama islam, shalat misalnya.Oleh karena setiap orang islam wajib mengerjakan shalat, maka mereka wajib mengetahui rukun-rukun dan sarat-sarat sahnya shalat, supaya dapat melaksanakan shalat dengan sempurna.Setiap orang islam wajib mempelajari/mengetahui rukun maupun shalat amalan ibadah yang akan dikerjakannya untuk memenuhi kewajiban tersebut. Karena sesuatu yang menjadi perantara untuk melakukan kewajiban, maka mempelajari wasilah/perantara tersebut hukumnya wajib. Ilmu agama adalah sebagian wasilah untuk mengerjakan kewajiban agama. Maka, mempelajari ilmu agama hukumnya wajib. Misalnya ilmu tentang puasa, zakat bila berharta, haji jika sudah mampu, dan ilmu tentang jual beli jika berdagang.Muhammad bin Al-Hasan pernah ditanya mengapa beliau tidak menyusun kitab tentang zuhud, beliau menjawab, “aku telah mengarang sebuah kitab tentang jual beli.” Maksud beliau adalah yang dikatakan zuhud ialah menjaga diri dari hal-hal yang subhat (tidak jelas halal haramnya) dalam berdagang.Setiap orang yang berkecimpung di dunia perdagangan, wajib mengetahui cara berdagang dalam islam supaya dapat menjaga diri dari hal-hal yang diharamkan. Setiap orang juga harus mengetahui ilmu-ilmu yang berkaitan dengan batin atau hati, misalnya tawakal, tobat, takut kepada Allah, dan ridha. Sebab, semua itu terjadi pada segala keadaan';
+        points = [''];
+      } else if (id === '2') {
+        title = 'B: keutamaan ilmu';
+        content = 'Tidak seorang pun yang meragukan akan pentingnya ilmu pengetahuan, karena ilmu itu khusus dimiliki umat manusia. Adapun selain ilmu, itu bisa dimiliki manusia dan bisa dimiliki binatang. Dengan ilmu pengetahuan Allah Ta’ala mengangkat derajat Nabi Adam as. Di atas para malaikat. Oleh karena itu, malaikat di perintah oleh Allah agar sujud kepada Nabi Adam as.Ilmu itu sangat penting karena itu sebagai perantara (sarana) untuk bertaqwa. Dengan taqwa inilah manusia menerima kedudukan terhormat disisi Allah, dan keuntungan yang abadi. Sebagaimana dikatakan Muhammad bin Al-Hasan bin Abdullah dalam syairnya : “Belajarlah! Sebab ilmu adalah penghias bagi pemiliknya. dia perlebihan, dan pertanda segala pujian, Jadikan hari-harimu untuk menambah ilmu. Dan berenanglah di lautan ilmu yang berguna.”Belajarlah ilmu agama, karena ia adalah ilmu yang paling unggul. Ilmu yang dapat membimbing menuju kebaikan dan taqwa, ilmu paling lurus untuk di pelajarai. Dialah ilmu yang menunjukkan kepada jalan yang lurus, yakni jalan petunjuk. Tuhan yang dapat menyelamatkan manusia dari segala keresahan. Oleh karena itu orang yang ahli ilmu agama dan bersifat wara’ lebih berat bagi setan daripada menggoda seribu ahli ibadah tapi bodoh.';
+        points = [''];
+      } else if (id === '3') {
+        title = 'C.: Belajar Ilmu Akhlaq';
+        content = 'Setiap orang islam juga wajib mengetahui/mempelajari akhlak yang terpuji dan yang tercela, seperti watak murah hati, kikir, penakut, pemberani, merendah diri, congkak, menjaga diri dari keburukan, israf (berlebihan), bakhil terlalu hemat dan sebagainya. Sifat sombong, kikir, penakut, israf hukumnya haram. Dan tidak mungkin bisa terhindar dari sifat-sifat itu tanpa mengetahui kriteria sifat-sifat tersebut serta mengetahui cara menghilangkannya. Oleh karena itu orang islam wajib mengetahuinya.Asy-Syahid Nasyiruddin telah menyusun kitab yang membahas tentang akhlak. Kitab tersebut sangat bermutu, dan perlu dibaca. Karena setiap orang wajib memelihara akhlaknya.';
+        points = [''];
+      } else if (id === '4') {
+        title = 'B: keutamaan ilmu';
+        content = 'Tidak seorang pun yang meragukan akan pentingnya ilmu pengetahuan, karena ilmu itu khusus dimiliki umat manusia. Adapun selain ilmu, itu bisa dimiliki manusia dan bisa dimiliki binatang. Dengan ilmu pengetahuan Allah Ta’ala mengangkat derajat Nabi Adam as. Di atas para malaikat. Oleh karena itu, malaikat di perintah oleh Allah agar sujud kepada Nabi Adam as.Ilmu itu sangat penting karena itu sebagai perantara (sarana) untuk bertaqwa. Dengan taqwa inilah manusia menerima kedudukan terhormat disisi Allah, dan keuntungan yang abadi. Sebagaimana dikatakan Muhammad bin Al-Hasan bin Abdullah dalam syairnya : “Belajarlah! Sebab ilmu adalah penghias bagi pemiliknya. dia perlebihan, dan pertanda segala pujian, Jadikan hari-harimu untuk menambah ilmu. Dan berenanglah di lautan ilmu yang berguna.”Belajarlah ilmu agama, karena ia adalah ilmu yang paling unggul. Ilmu yang dapat membimbing menuju kebaikan dan taqwa, ilmu paling lurus untuk di pelajarai. Dialah ilmu yang menunjukkan kepada jalan yang lurus, yakni jalan petunjuk. Tuhan yang dapat menyelamatkan manusia dari segala keresahan. Oleh karena itu orang yang ahli ilmu agama dan bersifat wara’ lebih berat bagi setan daripada menggoda seribu ahli ibadah tapi bodoh.';
+        points = [''];
+      }    
+
+
+      document.getElementById('babTitle').innerText = title;
+      document.getElementById('babContent').innerText = content;
+      document.getElementById('babContent1').innerText = content1;
+
+      var ul = document.getElementById('babPoints');
+      ul.innerHTML = '';
+      for (var i = 0; i < points.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = points[i];
+        ul.appendChild(li);
+      }
+    }
+  </script>
+
+</body>
+</html>

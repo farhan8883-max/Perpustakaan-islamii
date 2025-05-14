@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Kitab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="isi">
+        <button class="back-btn" onclick="history.back()">Kembali</button>
+    </div>
+    
+  <div class="select-container">
+    <label for="babSelect">Pilih Bab:</label>
+    <select id="babSelect" onchange="showBab(this.value)">
+      <option value="">-- Pilih Bab --</option>
+      <option value="1">Rukun Islam</option>
+      <option value="2">Rukun iman</option>
+      <option value="3">Pengertian lafadzh  lailahaillah</option>
+      <option value="4">Tanda-tanda Baligh (Dewasa)</option>
+      <option value="5">Bersuci Memakai Batu</option>
+      <option value="6">Rukun Wudhu</option>
+      <option value="7">Air terbagi kepada dua macam</option>
+      <option value="8">Yang mewajibkan mandi</option>
+      <option value="9">Fardhu mandi  wajib </option>
+      <option value="10">Yang membatalkan wudhu</option>
+      <option value="11">Larangan orang yang berhadats kecil </option>
+      <option value="12">Larangan orang yang berhadats besar</option>
+      <option value="13">Larangan perempuan yang sedang haidh</option>
+    </select>
+  </div>
+  <div class="kelompok">
+    <h1 id="babTitle">Pilih Bab</h1>
+    <p id="babContent">Safinah al-Najah adalah kitab ringkas tentang dasar-dasar ilmu fikih yang ditulis oleh Syeikh Salim bin Abdullah bin Saad bin Sumair al-Hadhrami. Kitab ini juga dikenal sebagai "Perahu Keselamatan" karena membahas kewajiban seorang hamba kepada Tuhannya. Safinah al-Najah fokus pada fikih ibadah menurut mazhab Syafi'i, memberikan pengetahuan dasar tentang ibadah dalam Islam. 
+Penulis:
+Syeikh Salim bin Abdullah bin Saad bin Sumair al-Hadhrami: Seorang ulama asal Yaman yang wafat di Jakarta pada abad ke-13 H. 
+Isi Kitab:
+Dasar-dasar fikih ibadah:
+Safinah al-Najah menjelaskan dasar-dasar ibadah seperti rukun Islam, rukun iman, taharah, salat, dan zakat. 
+Hukum fikih:
+Kitab ini berisi kesimpulan hukum fikih tanpa menyertakan dalil atau dasar pengambilan dalil. 
+Fokus pada mazhab Syafi'i:
+Safinah al-Najah memberikan penjelasan tentang fikih ibadah menurut mazhab Syafi'i. 
+Keunggulan:
+Ringkas dan mudah dipahami:
+Safinah al-Najah dirancang untuk pelajar dan pemula, sehingga mudah dipahami.
+Populer di pesantren:
+Kitab ini sering digunakan sebagai salah satu materi kurikulum di pondok pesantren Nahdliyyin. </p>
+    <p id="babContent1"></p>
+    <ul id="babPoints"></ul>
+  </div>
+  <script>
+    function showBab(id) {
+      var title = '';
+      var content = '';
+      var content1 = '';
+      var points = [];
+
+      if (id === '1') {
+        title = 'Bab 1: فصل أركان الإسلام';
+        content = 'Bab ini membahas Rukun Islam.';
+        points = ['Bersaksi bahwa tiada ada tuhan yang haq kecuali Alloh Subhaanahu wa Ta aala dan Nabi Muhammad Sholalloohu Alayhi wa Sallam adalah utusanNya.', 'Mendirikan sholat (lima waktu).', ' Menunaikan zakat.', 'Berpuasa di bulan Ramadhan.', 'Menunaikan ibadah haji bagi yang mampu.'];
+      } else if (id === '2') {
+        title = 'Bab 2: فصل أركان الإيمان';
+        content = 'Rukun iman ada enam, yaitu:';
+       points = ['beriman kepada allah.', 'beriman pada malaikat', ' beriman ke pada kitab.', 'beriman kepada rosul.', 'beriman kepa hari kiamat.', 'beriman kepada takdir baik dan buruk.'];
+      } else if (id === '3') {
+        title = 'Bab 3: (فصل ) ومعنى لاإله إلاالله : لامعبود بحق في الوجود إلا الله .';
+        content = 'Adapun arti “La ilaha illah”, yaitu: Tidak ada Tuhan yang berhak disembah dalam kenyataan selain Alloh..';
+      } else if (id === '4') {
+        title = 'Bab 4: (فصل ) علامات البلوغ ثلاث : تمام خمس عشرة سنه في الذكروالأنثى ، والاحتلام في الذكر والأنثى لتسع سنين ، و الحيض في الأنثى لتسع سنين .';
+        content = 'Adapun tanda-tanda balig (mencapai usia remaja) seseorang ada tiga, yaitu:';
+        points = ['Berumur seorang laki-laki atau perempuan lima belas tahun.', ' Bermimpi (junub) terhadap laki-laki dan perempuan ketika melewati sembilan tahun.', 'Keluar darah haidh sesudah berumur sembilan tahun .'];
+      } else if (id === '5') {
+        title = 'Bab 5: (فصل) شروط إجزاء الحَجَرْ ثمانية: أن يكون بثلاثة أحجار ، وأن ينقي المحل ، وأن لا يجف النجس ، ولا ينتقل ، ولا يطرأ عليه آخر ، ولا يجاوز صفحته وحشفته ، ولا يصيبه ماء ، وأن تكون الأحجار طاهرة';
+        content = 'Syarat boleh menggunakan batu untuk beristinja ada delapan, yaitu:';
+        points = ['Menggunakan tiga batu.', 'Mensucikan tempat keluar najis dengan batu tersebut.', 'Najis tersebut tidak kering.', 'Najis tersebut tidak berpindah.', 'Najis tersebut tidak terkena najis yang lain.', 'Najis tersebut tidak melebihi batas tempat keluarnya najis.', 'Najis tersebut tidak terkena air.', 'Batu yang digunakan harus suci.'];
+      } else if (id === '6') {
+        title = 'Bab 6: (فصل ) فروض الوضوء ستة: الأول:النية ، الثاني : غسل الوجه ، الثالث: غسل اليدين مع المرفقين ، الرابع : مسح شيء من الرأس ، الخامس : غسل الرجلين مع الكعبين ، السادس :الترتيب ';
+        content = 'Rukun wudhu ada enam, yaitu:';
+        points = ['Niat.', 'Membasuh muka', ' Membasuh kedua tangan serta siku.', 'Mengusap sebagian kepala.', 'Membasuh kedua kaki serta mata kaki.', 'Tertib.'];
+      } else if (id === '7') {
+        title = 'Bab 7: Bab ini membahas air yang terbagi kepada dua macam.';
+        content = 'Adapun air yang sedikit adalah air yang kurang dari dua qullah . Dan air yang banyak itu adalah yang sampai dua qullah atau lebih ';
+        points = [' Air yang sedikit.', ' Air yang banyak'];
+        content1 = 'Air yang sedikit akan menjadi najis dengan sebab tertimpa najis kedalamnya, sekalipun tidak berubah. Adapun air yang banyak maka tdak akan menjadi najis ';
+      } else if (id === '8') {
+        title = 'Bab 8: Yang mewajibkan mandi';
+        content = 'Yang mewajibkan mandi ada enam perkara, yaitu';
+        points = ['Memasukkan kemaluan (kepala dzakar) ke dalam farji (kemaluan) perempuan.', 'Keluar air mani', 'Keluar darah haidh [datang bulan].,', 'Keluar darah nifas [darah sesudah melahirkan].', 'melahirkan'];
+      } else if (id === '9') {
+        title = 'Bab 9:  Fardhu–fardhu (rukun) mandi';
+        content = 'Fardhu–fardhu (rukun) mandi yang diwajibkan ada dua perkara, yaitu:';
+        points = ['niat mandi wajib', 'Menyampaikan air ke seluruh tubuh dengan sempurna'];
+      } else if (id === '10') {
+        title = 'Bab 10: membatalkan wudhu';
+        content = 'Yang membatalkan wudhu` ada empat, yaitu:';
+        points = ['Apa bila keluar sesuatu dari salahsatu kemaluan seperti angin dan lainnya, kecuali air mani.', 'Hilang akal seperti tidur dan lain lain, kecuali tidur dalam keadaan duduk rapat bagian punggung dan pantatnya dengan tempat duduknya, sehingga yakin tidak keluar angin sewaktu tidur tersebut', 'Bersentuhan antara kulit laki–laki dengan kulit perempuan yang bukan muhrim baginya dan tidak ada penghalang antara dua kulit tersebut seperti kain dll.', 'Menyentuh kemaluan orang lain atau dirinya sendiri atau menyentuh tempat pelipis dubur (kerucut sekeliling) dengan telapak tangan atau telapak jarinya.' ];
+      } else if (id === '11') {
+        title = 'Bab 11:  Larangan bagi orang yang berhadats kecil';
+        content = 'Larangan bagi orang yang berhadats kecil ada tiga, yaitu:';
+        points = ['Shalat, fardhu maupun sunnah.', 'Thowaaf (keliling ka`bah tujuh kali).', 'Membaca Al-Qur`an, baik Al-Qur`an yang ditulis maupun yang tidak ditulis.'];
+      } else if (id === '12') {
+        title = 'Bab 12:  Larangan bagi orang yang berhadats besar (junub) ';
+        content = 'Larangan bagi orang yang berhadats besar (junub) ada lima, yaitu:';
+        points = ['Sholat', 'Thowaaf.','Menyentuh Al-Qur`an.', 'Membaca Al-Qur`an.', 'I`tikaf (berdiam di masjid).'];
+      } else if (id === '13') {
+        title = 'Bab 13:  Larangan bagi perempuan yang sedang haidh';
+        content = 'Larangan bagi perempuan yang sedang haidh ada sepuluh, yaitu:';
+        points = ['Sholat.', 'thowaaf.', 'Menyentuh Al-Qur`an.', 'Membaca Al-Qur`an.', 'puasa.' ,'I`tikaf (berdiam di masjid).', 'masuk ke dalam masjid.', 'cerai', 'jimak', 'Bersenang – senang dengan isteri di antara pusar dan lutut.'];
+      } else {
+        title = 'Pilih Bab untuk Menampilkan Detail';
+        content = 'Silakan pilih bab dari daftar di atas untuk melihat isinya.';
+        points = [];
+      }
+
+      document.getElementById('babTitle').innerText = title;
+      document.getElementById('babContent').innerText = content;
+      document.getElementById('babContent1').innerText = content1;
+
+      var ul = document.getElementById('babPoints');
+      ul.innerHTML = '';
+      for (var i = 0; i < points.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = points[i];
+        ul.appendChild(li);
+      }
+    }
+  </script>
+
+</body>
+</html>

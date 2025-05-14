@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hadis Arbain An-Nawawi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="isi">
+    <button class="back-btn" onclick="history.back()">Kembali</button>
+  </div>
+
+  <div class="select-container">
+    <label for="hadisSelect">Pilih Hadis:</label>
+    <select id="hadisSelect" onchange="showHadis(this.value)">
+      <option value="">-- Pilih Hadis --</option>
+      <option value="1">Hadis 1: Amal Tergantung Niat</option>
+      <option value="2">Hadis 2: Pengertian Islam, Iman, dan Ihsan</option>
+      <option value="3">Hadis 3: Islam Dibangun di atas Lima Dasar</option>
+      <option value="4">Hadis 4: Takdir Manusia Telah Ditetapkan</option>
+      <option value="5">Hadis 5: Amalan Bid'ah Ditolak</option>
+      <option value="6">Hadis 6: Halal dan Haram</option>
+      <option value="7">Hadis 7: Agama adalah Nasihat</option>
+      <option value="8">Hadis 8: Haram Darah Seorang Muslim</option>
+      <option value="9">Hadis 9: Menjalankan Perintah Semampunya</option>
+      <option value="10">Hadis 10: Hanya Menerima yang Baik</option>
+      <!-- <option value="11">Hadis 11: Tinggalkan Apa yang Meragukan</option>
+      <option value="12">Hadis 12: Tinggalkan Apa yang Tidak Berguna</option>
+      <option value="13">Hadis 13: Di Antara Kesempurnaan Iman</option>
+      <option value="14">Hadis 14: Sebab-Sebab Darah Ditumpahkan</option>
+      <option value="15">Hadis 15: Di Antara Akhlak Seorang Mukmin</option>
+      <option value="16">Hadis 16: Jangan Marah</option>
+      <option value="17">Hadis 17: Berbuat Baik Atas Segala Sesuatu</option>
+      <option value="18">Hadis 18: Bertakwalah Kepada Allah</option>
+      <option value="19">Hadis 19: Jagalah Allah, Maka Dia akan Menjagamu</option>
+      <option value="20">Hadis 20: Malu Akhlak Para Nabi</option>
+      <option value="21">Hadis 21: Katakanlah, “Aku beriman kepada Allah!”</option>
+      <option value="22">Hadis 22: Amalan yang Memasukkan ke Surga</option>
+      <option value="23">Hadis 23: Suci Itu Sebagian Dari Iman</option>
+      <option value="24">Hadis 24: Janganlah Kalian Saling Menzhalimi</option>
+      <option value="25">Hadis 25: Setiap Kebaikan adalah Sedekah</option>
+      <option value="26">Hadis 26: Setiap Persendian Wajib Bersedekah</option>
+      <option value="27">Hadis 27: Kebaikan dan Dosa</option>
+      <option value="28">Hadis 28: Mendengar dan Ta’at</option>
+      <option value="29">Hadis 29: Pintu-Pintu Kebaikan</option>
+      <option value="30">Hadis 30: Batasan-Batasan Allah</option>
+      <option value="31">Hadis 31: Anjuran Zuhud</option>
+      <option value="32">Hadis 32: Larangan Berbuat Bahaya dan Merugikan</option>
+      <option value="33">Hadis 33: Bukti Wajib Bagi Penuntut</option>
+      <option value="34">Hadis 34: Merubah Kemungkaran</option>
+      <option value="35">Hadis 35: Hamba-Hamba Allah adalah Bersaudara</option>
+      <option value="36">Hadis 36: Keutamaan Akhlak dan Ilmu</option>
+      <option value="37">Hadis 37: Kebaikan dan Keburukan</option>
+      <option value="38">Hadis 38: Keutamaan Wali Allah</option>
+      <option value="39">Hadis 39: Tiga Hal yang Allah Maafkan</option>
+      <option value="40">Hadis 40: Hiduplah Laksana Musafir</option>
+      <option value="41">Hadis 41: Mengikuti Syariat adalah Tiang Keimanan</option>
+      <option value="42">Hadis 42: Luasnya Ampunan Allah</option> -->
+    </select>
+  </div>
+
+  <div class="kelompok">
+    <h1 id="hadisTitle">Hadist Arbain </h1>
+    <p id="hadisContent">Pilih Hadit di atas</p>
+    <p id="hadisContent1"></p>
+  </div>
+
+  <script>
+  const hadisData = {
+  1: {
+    title: "Hadis 1: Amal Tergantung Niat",
+    content: "ʿAn Amīri al-Muʾminīn Abī Ḥafṣin ʿUmar ibn al-Khaṭṭāb raḍiya Allāhu ʿanhu qāla: Samiʿtu Rasūla Allāhi ṣallā Allāhu ʿalayhi wa sallam yaqūlu:Innamā al-aʿmālu bi al-niyyāt, wa innamā likulli imriʾin mā nawā, fa-man kānat hijratuhu ilā Allāhi wa Rasūlihi fa-hijratuhu ilā Allāhi wa Rasūlihi, wa man kānat hijratuhu li-dunyā yuṣību-hā, aw imraʾatin yankihu-hā, fa-hijratuhu ilā mā hājara ilayh.Rawāhu imāmā al-muḥaddithīn Abū ʿAbdillāh Muḥammad ibn Ismāʿīl ibn Ibrāhīm ibn al-Mughīrah ibn Bardizbah al-Bukhārī, wa Abū al-Ḥusayn Muslim ibn al-Ḥajjāj ibn Muslim al-Qushayrī al-Naysābūrī, fī Ṣaḥīḥay-himā alladhayni humā aṣaḥḥu al-kutub al-muṣannafah.",
+    content1: "Dari Amirul Mukminin Abu Hafsh Umar bin Al Khaththab adia berkata: ‘Aku mendengar Rasulullah shalallahu alaihi wasalam bersabda: “Amalan-amalan itu hanyalah tergantung pada niatnya. Dan setiap orang itu hanyalah akan dibalas berdasarkan apa yang ia niatkan. Maka barang siapa yang hijrahnya kepada Allah dan Rasul-Nya, maka hijrahnya keapda Allah dan Rasul-Nya. Namun barang siapa yang hijrahnya untuk mendapatkan dunia atau seorang wanita yang ingin ia nikahi, maka hijrahnya kepada apa yang ia niatkan tersebut.” (Diriwayatkan oleh dua Imamnya para ahli hadits, Abu Abdillah Muhammad bin Isma’il bin Ibrahim bin Al Mughirah bin Bardizbah Al Bukhari dan Abul Husain Muslim bin Al Hajjaj  bin Muslim Al Qusyairi An Naisaburi dalam dua kitab shahih mereka, yang keduanya merupakan kitab yang paling shahih diantara kitab-kitab yang ada.).[1][1]  Diriwayatkan oleh al Bukhari (1) dan Muslim (1907)."
+  },
+  2: {
+    title: "Hadis 2: Rukun Islam, Iman, dan Ihsan",
+    content: "'An 'Umar radhiyallahu 'anhu aydhan qāla: baynamā naḥnu julūsun 'inda Rasūlillāh ṣallallāhu 'alayhi wa sallam dhāta yawmin, idh ṭala'a 'alaynā rajulun shadīdu bayāḍi ath-thiyāb, shadīdu sawādi ash-sha'ri, lā yurā 'alayhi atharu as-safar, walā ya'rifuhu minnā aḥadun. Ḥattā jalasa ilā an-nabiyyi ṣallallāhu 'alayhi wa sallam, fa-asnada rukbatayhi ilā rukbatayhi, wa waḍa'a kaffayhi 'alā fakhidhayhi, wa qāla: 'Yā Muḥammad, akhbirnī 'an al-Islām.'Faqāla Rasūlullāh ṣallallāhu 'alayhi wa sallam: 'Al-Islām an tashhada an lā ilāha illā Allāh wa anna Muḥammadan Rasūlullāh, wa tuqīma aṣ-ṣalāta, wa tu'tiya az-zakāta, wa taṣūma Ramaḍāna, wa taḥujja al-bayta in isṭaṭa'ta ilayhi sabīlan.'Qāla: 'Ṣadaqta.'Fa'ajibnā lahu yas'aluhu wa yuṣaddiquhu.Qāla: 'Fa-akhbirnī 'an al-īmān.'Qāla: 'An tu'mina billāhi, wa malā'ikatihi, wa kutubihi, wa rusulihi, wa al-yawmi al-ākhir, wa tu'mina bil-qadari khayrihi wa sharrihi.'Qāla: 'Ṣadaqta.'Qāla: 'Fa-akhbirnī 'an al-iḥsān.'Qāla: 'An ta'budallāha ka'annaka tarāhu, fa-in lam takun tarāhu fa-innahu yarāka.'Qāla: 'Fa-akhbirnī 'an as-sā'ah.'Qāla: 'Mā al-mas'ūlu 'anhā bi-a'lama mina as-sā'il.'Qāla: Fa-akhbirnī 'an amārātihā.Qāla: An talida al-amatu rabbatahā, wa an tarā al-ḥufāta al-'urāta al-'ālata ri'ā'a ash-shā'i yataṭāwalūna fī al-bunyān.'Thumma inṭalaqa, falabithtu maliyyan, thumma qāla: Yā 'Umar, atadrī man as-sā'il?Qultu: Allāhu wa Rasūluhu a'lam.Qāla: Fa-innahu Jibrīl atākum yu'allimukum dīnakum.,",
+    content1: "Dari Umar radhiyallahu ‘anhu pula dia berkata; pada suatu hari ketika kami sedang duduk-duduk bersama Rasulullah shallallahu ‘alaihi wa sallam, tiba-tiba datang seorang laki-laki berpakaian sangat putih, dan rambutnya sangat hitam, tidak terlihat padanya tanda-tanda bekas perjalanan, dan tidak seorang pun dari kami yang mengenalnya, kemudian ia duduk di hadapan Nabi shallallahu ‘alaihi wa sallam dan mendekatkan lututnya lalu meletakkan kedua tangannya di atas pahanya, seraya berkata: ‘Wahai Muhammad jelaskan kepadaku tentang Islam?’ Nabi shallallahu ‘alaihi wa sallam menjawab: ”Islam itu adalah engkau bersaksi bahwa tidak ada sesembahan yang berhak diibadahi dengan benar kecuali Allah dan Muhammad adalah utusan-Nya, engkau menegakkan shalat, menunaikan zakat, puasa Ramadhan dan haji ke Baitullah Al Haram jika engkau mampu mengadakan perjalanan ke sana.” Laki-laki tersebut berkata: ‘Engkau benar.’ Maka kami pun terheran-heran padanya, dia yang bertanya dan dia sendiri yang membenarkan jawabannya. Dia berkata lagi: “Jelaskan kepadaku tentang iman?” Nabi shallallahu ‘alaihi wa sallam menjawab: “(Iman itu adalah) Engkau beriman kepada Allah, malaikat-malaikat-Nya, kitab-kitab-Nya, rasul-rasul-Nya dan hari akhir serta engkau beriman kepada takdir baik dan buruk.” Ia berkata: ‘Engkau benar.’ Kemudian laki-laki tersebut bertanya lagi: ‘Jelaskan kepadaku tentang ihsan?’ Beliau shallallahu ‘alaihi wa sallam bersabda: “(Ihsan adalah) Engkau beribadah kepada Allah seolah-olah engkau melihat-Nya. Kalaupun engkau tidak bisa melihat-Nya, sungguh Diamelihatmu.” Dia berkata: “Beritahu kepadaku kapan terjadinya kiamat?” Nabi shallallahu ‘alaihi wa sallam menjawab: “Tidaklah orang yang ditanya lebih mengetahui dari yang bertanya.” Ia berkata: “Jelaskan kepadaku tanda-tandanya!” Nabi shallallahu ‘alaihi wa sallam berkata: “Jika seorang budak wanita melahirkan tuannya dan jika engkau mendapati penggembala kambing yang tidak beralas kaki dan tidak pakaian saling berlomba dalam meninggikan bangunan.”Umar radhiyallahu ‘anhu berkata: ‘Kemudian laki-laki itu pergi, aku pun terdiam sejenak.’ Maka Rasulullah shallallahu ‘alaihi wa sallam bertanya kepadaku: “Wahai ‘Umar, tahukah engkau siapa orang tadi?” Aku pun menjawab: “Allah dan Rasul-Nya lebih tahu.”  Nabi shallallahu ‘alaihi wa sallam bersabda: “Dia adalah Jibril yang datang untuk mengajarkan agama ini kepada kalian.” (HR Muslim)[1][1] Diriwayatkan oleh Muslim (8)."
+  },
+  3: {
+    title: "Hadis 3: Islam Dibangun di atas Lima Dasar",
+    content: "'An Abī 'Abdir-Raḥmān 'Abdillāh ibn 'Umar ibn al-Khaṭṭāb raḍiyallāhu 'anhumā qāla: Sami'tu an-Nabiyya ṣallallāhu 'alayhi wa sallam yaqūlu: Buniya al-Islāmu 'alā khamsin: Shahādati an lā ilāha illallāh wa anna Muḥammadan Rasūlullāh, wa iqāmiṣ-ṣalāh, wa ītā'iz-zakāh, wa ḥajji al-bayt, wa ṣawmi Ramaḍān.",
+    content1: "Dari Abdullah bin Umar radhiyallahu ‘anhuma dia berkata: ”Rasulullah shallallahu ‘alaihi wa sallam bersabda: ”Islam itu dibangun di atas lima dasar: persaksian (syahadat) bahwa tidak ada sesembahan yang berhak disembah kecuali Allah subhanahu wa ta’ala dan Muhammad adalah utusan Allah, menegakkan shalat, menunaikan zakat, haji (ke Baitullah) dan puasa di bulan Ramadhan.” (HR. Al Bukhari dan Muslim)[1][1] Diriwayatkan oleh Imam al Bukhari (8 dan 4514) dan Muslim (16)"
+  },
+  4: {
+    title: "Hadis 4: Amal Tergantung Niat",
+    content: "'An 'Abdillāh ibn Mas'ūd raḍiyallāhu 'anhu qāla: ḥaddathanā Rasūlullāh ṣallallāhu 'alayhi wa sallam wa huwa aṣ-ṣādiqu al-maṣdūq: Inna aḥadakum yujma'u khalquhu fī baṭni ummihi arba'īna yawman nuṭfatan, thumma yakūnu 'alaqatan mithla dhālika, thumma yakūnu muḍghatan mithla dhālika, thumma yursalu ilayhi al-malak fayanfukhu fīhi ar-rūḥ, wa yu'maru bi-arba'i kalimāt: bikatbi rizqihi wa ajlihi wa 'amalihi wa shaqiyyun aw sa'īd. Fa wallāhi alladhī lā ilāha ghayruhu inna aḥadakum laya'malu bi'amali ahli al-jannah ḥattā mā yakūnu baynahu wa baynahā illā dhirā'un, fayasbiqu 'alayhi al-kitābu faya'malu bi'amali ahli an-nār fayadkhuluha, wa inna aḥadakum laya'malu bi'amali ahli an-nār ḥattā mā yakūnu baynahu wa baynahā illā dhirā'un, fayasbiqu 'alayhi al-kitābu faya'malu bi'amali ahli al-jannah fayadkhuluha.",
+    content1: "Dari Abu Abdurrahman Abdullah bin Mas’ud radhiyallahu ‘anhu, dia berkata: ‘Rasulullah shallallahu ‘alaihi wa sallam telah bercerita kepada kami, dan beliau adalah orang yang benar lagi dibenarkan: ”Sesungguhnya salah seorang dari kalian dikumpulkan penciptaannya di dalam perut ibunya selama 40 hari berwujud nuthfah (mani), kemudian menjadi ‘alaqah (gumpalan darah) selama itu juga, kemudian menjadi mudghah (gumpalan daging) selama itu juga. Kemudian diutus seorang malaikat, lalu dia meniupkan ruh kepadanya, dan dia (malaikat tadi) diperintah untuk menulis 4 kalimat (perkara): tentang rezekinya, amalannya, ajalnya dan (apakah) dia termasuk orang yang sengsara atau bahagia.Demi Allah, Dzat yang tidak ada sesembahan yang haq selain Dia, sesungguhnya salah seorang dari kalian, benar-benar beramal dengan amalan penduduk jannah (surga) sehingga jarak antara dia dengan jannah itu tinggal sehasta. Namun dia didahului oleh al kitab (catatan takdirnya) sehingga dia beramal dengan amalan penduduk neraka, maka diapun masuk ke dalamnya. Dan sunguh, salah deorang dari kalian beramal dengan amalan penduduk neraka hingga jarak antara di dengan neraka tinggal satu hasta. Namun dia didahului oleh catatan takdir, sehingga dia beramal dengan amalan penduduk jannah, maka dia masuk ke dalamnya.” (HR Al Bukhari dan Muslim)[1][1]  Diriwayatkan oleh Al Bukhari (no. 3208, 3332, 6594, 7454) dan Muslim (no. 2643)."
+  },
+  5: {
+    title: "Hadis 5: Larangan Membuat Sesuatu yang Baru dalam Agama",
+    content: "'An Ummil-Mu’minīn, Umm 'Abdillāh 'Ā’ishah raḍiyallāhu 'anhā qālat: Qāla Rasūlullāh ṣallallāhu 'alayhi wa sallam: Man aḥdatha fī amrinā hādhā mā laysa minhu fa huwa raddun. (Rawāhu al-Bukhārī wa Muslim). Wa fī riwāyatin li-Muslim: Man 'amila 'amalan laysa 'alayhi amrunā fa huwa raddun.",
+    content1: "“Dari Ummul Mukminin, Ummu Abdillah ‘Aisyah radhiyallahu ‘anha, dia berkata: Rasulullah shallallahu ‘alaihi wa sallam bersabda: “Barangsiapa yang (memulai) mengada-adakan (sesuatu yang baru) dalam urusan (agama) kami ini yang bukan termasuk bagian darinya, maka amalan tersebut tertolak.” (HR. Bukhari dan Muslim)[1]Dalam riwayat Muslim disebutkan: ”Barangsiapa yang mengerjakan sebuah amalan yang tidak terdapat padanya perintah kami, maka amalan tersebut tertolak.”[2][1] Diriwayatkan oleh al Bukhari (2697) dan Muslim (1718)[2] Diriwayatkan oleh Muslim (1718) dan diriwayatkan oleh al Bukhari secara mu’allaq dalam Kitab al Buyu’ Bab An Najsy (4/356, Al Fath) dan Kitab al I’tishom bil Kitab Wa as Sunnah Bab Idza Ijtahada al ‘Amil au al Hakim fa Akhtho’a (13/317, Fath)."
+  },
+  6: {
+    title: "Hadis 6: Halal dan Haram",
+    content: "An Abī ‘Abdillāh an-Nu‘mān ibn Bashīr raḍiyallāhu ‘anhumā qāla: Sami‘tu Rasūlallāh ṣallallāhu ‘alayhi wa sallam yaqūlu: Inna al-ḥalāla bayyinun wa inna al-ḥarāma bayyinun wa baynahumā umūrun mushtabihātun lā ya‘lamuhunna kathīrun mina an-nās. Fa man ittaqā ash-shubuhāti faqad istabra’a lidīnihi wa ‘irḍihi, wa man waqa‘a fī ash-shubuhāti waqa‘a fī al-ḥarām, ka ar-rā‘ī yar‘ā ḥawla al-ḥimā yūshiku an yarta‘a fīhi. Alā wa inna likulli malikin ḥimā, alā wa inna ḥimā Allāhi maḥārimuhu. Alā wa inna fī al-jasadi muḍghatan, idhā ṣalaḥat ṣalaḥa al-jasadu kulluhu, wa idhā fasadat fasada al-jasadu kulluhu, alā wa hiya al-qalb.",
+    content1: "Dari Abu ‘Abdillah Nu’man bin Basyir radhiyallahu ‘anhu, ia berkata: Aku mendengar Rasulullah shallallahu ‘alaihi wa sallam bersabda: ”Sesungguhnya perkara yang halal itu telah jelas dan perkara yang haram itu telah jelas. Dan di antara keduanya terdapat perkara-perkara yang (samar), tidak diketahui oleh mayoritas manusia. Barang siapa yang menjaga diri dari perkara-perkara samar tersebut, maka dia telah menjaga kesucian agama dan kehormatannya. Barang siapa terjatuh ke dalam perkara syubhat, maka dia telah terjatuh kepada perkara haram, seperti  seorang penggembala yang menggembalakan ternaknya di sekitar daerah larangan (hima), dikhawatirkan dia akan masuk ke dalamnya. Ketahuilah, bahwa setiap raja itu mempunyai hima, ketahuilah bahwa hima Allah subhanahu wa ta’ala adalah segala yang Allah subhanahu wa ta’ala haramkan. Ketahuilah bahwa dalam tubuh manusia terdapat sepotong daging. Apabila daging tersebut baik maka baik pula seluruh tubuhnya dan apabila daging tersebut rusak maka rusak pula seluruh tubuhnya. Ketahuilah segumpal daging tersebut adalah kalbu (hati). [HR. Al-Bukhari dan Muslim][1][1] Diriwayatkan oleh Imam al Bukhari no. 52, 2051 dan Muslim no. 1599"
+  },
+  7: {
+    title: "Hadis 7: Agama Ini adalah Nasehat",
+    content: "‘An Abī Ruqayyah Tamīm ibn Aws ad-Dārī raḍiyallāhu ‘anhu, anna an-Nabiyya ṣallallāhu ‘alayhi wa sallam qāla: Ad-dīnu an-naṣīḥah. Qulnā: Li-man? Qāla: Lillāh, wa li-kitābih, wa li-rasūlih, wa li-a’immati al-muslimīn wa ‘āmmatihim.",
+    content1: "Dari Abu Ruqayyah Tamim bin Aus Ad Dari radhiyallahu ‘anhu, dia berkata: “Sesungguhnya Rasulullah shallallahu ‘alaihi wa sallam bersabda: ”Agama itu nasihat.” Kami bertanya: ”Untuk siapa?” Beliau shallallahu ‘alaihi wa sallam menjawab: ”Untuk Allah, untuk kitab-Nya, untuk Rasul-Nya, untuk pemimpin kaum muslimin dan seluruh kaum muslimin.”[1][1] Diriwayatkan oleh Muslim (no 55), al Bukhari secara mu’allaq dalam Kitab al Iman, Bab: “Sabda Nabi   shallallahu ‘alaihi wa sallam: ”Agama itu nasihat, untuk Allah subhanahu wa ta’ala, untuk Rasul-Nya, pemimpin kaum muslimin dan seluruh kaum muslimin.”"
+  },
+  8: {
+    title: "Hadis 8: Haram Darah Seorang Muslim",
+    content: "‘An Ibn ‘Umar raḍiyallāhu ‘anhumā anna Rasūlallāh ṣallallāhu ‘alayhi wa sallam qāla: Umirtu an uqātila an-nāsa ḥattā yash-hadū an lā ilāha illallāh wa anna Muḥammadan Rasūlullāh, wa yuqīmū aṣ-ṣalāh, wa yu’tū az-zakāh. Fa idhā fa‘alū dhālika ‘aṣamū minnī dimā’ahum wa amwālahum illā bi-ḥaqq al-Islām, wa ḥisābuhum ‘alā Allāh ta‘ālā.",
+    content1: "“Dari Ibnu ‘Umar radhiyallahu ‘anhuma berkata: ‘Rasulullah shallallahu ‘alaihi wa sallam telah bersabda: ”Aku diperintahkan untuk memerangi manusia hingga mereka bersaksi bahwa tidak ada sesembahan yang haq selain Allah, dan Muhammad adalah utusan Allah, menegakkan shalat, menunaikan zakat. Maka apabila mereka telah melakukan itu semua, maka mereka telah melindungi darah dan harta mereka dariku, kecuali dengan hak Islam dan perhitungan mereka (hisab) di sisi Allah subhanahu wa ta’ala.” (HR. Al- Bukhari dan Muslim)[1][1] Diriwayatkan oleh Imam al Bukhari (25) dan Muslim (22)"
+  },
+  9: {
+    title: "Hadis 9: Menjalankan Perintah Semampunya",
+    content: "‘An Abī Hurayrah ‘Abdir-Raḥmān ibn Ṣakhr raḍiyallāhu ta‘ālā ‘anhu qāla: Sami‘tu Rasūlallāh ṣallallāhu ‘alayhi wa sallam yaqūlu: Mā nahaytukum ‘anhu fajtanibūhu, wa mā amartukum bihi fa’tū minhu mā istaṭa‘tum; fa innamā ahlaka alladhīna min qablikum kathratu masā’ilihim wa ikhtilāfuhum ‘alā anbiyā’ihim.",
+    content1: "Dari Abu Hurairah Abdurrahman bin Shakhr radhiyallahu ‘anhu, dia berkata: ‘Aku mendengar Rasulullah shallallahu ‘alaihi wa sallam bersabda: ”Apa saja yang aku larang kalian darinya maka jauhilah, dan apa saja yang aku perintahkan kepada kalian maka kerjakanlah semampu kalian, karena sesungguhnya yang telah membinasakan orang-orang yang sebelum kalian adalah banyaknya pertanyaan  dan penyelisihan  terhadap para nabi mereka.”[1][1] Diriwayatkan oleh al Bukhari (7288) dan Muslim (1337)"
+  },
+  10: {
+    title: "Hadis 10: Allah Mahabaik dan Hanya Menerima yang Baik",
+    content: "‘An Abī Hurayrah ‘Abdir-Raḥmān ibn Ṣakhr raḍiyallāhu ta‘ālā ‘anhu qāla: Qāla Rasūlullāh ṣallallāhu ‘alayhi wa sallam: Inna Allāha ta‘ālā ṭayyibun lā yaqbalu illā ṭayyiban, wa inna Allāha amara al-mu’minīn bimā amara bihil-mursalīn, fa qāla: (Yā ayyuhā ar-rusulu kulū mina aṭ-ṭayyibāti wa‘malū ṣāliḥan) (al-Mu’minūn: 51), wa qāla: (Yā ayyuhā alladhīna āmanū kulū min ṭayyibāti mā razaqnākum) (al-Baqarah: 172). Thumma dhakara ar-rajula yuṭīlu as-safar, ash‘atha aghbara, yamuddu yadayhi ilā as-samā’: Yā Rabb, Yā Rabb, wa maṭ‘amuhu ḥarām, wa mashrabuhu ḥarām, wa malbasuhu ḥarām, wa ghudhhiya bil-ḥarām, fa annā yustajābu li-dhālik.",
+    content1: "Dari Abu Hurairah radhiyallahu ‘anhu, dia berkata: ‘Rasulullah shallallahu ‘alaihi wa sallam bersabda: “Sesungguhnya Allah Maha Baik dan tidak menerima kecuali yang baik. Dan sesungguhnya Allah subhanahu wa ta’ala telah memerintahkan kepada kaum mukminin dengan sesuatu yang Allah perintahkan pula kepada para rasul. Maka Allah subhanahu wa ta’ala berfirman: ”Wahai para rasul, makanlah dari makanan yang baik-baik dan kerjakanlah amal shalih.” Dan Allah subhanahu wa ta’ala berfirman: ”Wahai orang-orang yang beriman, makanlah kalian dari rezeki yang baik-baik yang telah Kami berikan kepada kalian.” Kemudian beliau shallallahu ‘alaihi wa sallam menyebutkan seseorang yang melakukan perjalanan panjang dalam keadaan dirinya kusut dan kotor, dia menengadahkan kedua tangannya ke langit seraya berdoa: ”Wahai Rabb-ku, wahai Rabb-ku,” namun makanannya haram, minumannya haram dan pakaiannya haram dan kenyang dengan sesuatu yang harom, lalu bagaimana mungkin doanya akan dikabulkan?.” (HR. Muslim)[1][1] Diriwayatkan oleh Muslim (1015)"
+  },
+};
+
+
+    function showHadis(id) {
+      const hadis = hadisData[id];
+      if (hadis) {
+        document.getElementById('hadisTitle').innerText = hadis.title;
+        document.getElementById('hadisContent').innerText = hadis.content;
+        document.getElementById('hadisContent1').innerText = hadis.content1;
+      } else {
+        document.getElementById('hadisTitle').innerText = 'Pilih Hadis';
+        document.getElementById('hadisContent').innerText = 'Silakan pilih hadis dari daftar di atas untuk melihat isinya.';
+        document.getElementById('hadisContent1').innerText = 'Silakan pilih hadis dari daftar di atas untuk melihat isinya.';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Kitab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="isi">
+        <button class="back-btn" onclick="history.back()">Kembali</button>
+    </div>
+    
+  <div class="select-container">
+    <label for="babSelect">Pilih Bab:</label>
+    <select id="babSelect" onchange="showBab(this.value)">
+      <option value="">-- Pilih Bab --</option>
+      <option value="1">Dengan apa seorang perempuan berakhlak</option>
+      <option value="2">Perempuan yang beradap</option>
+      <option value="3">Anak perempuan yang lancang</option>
+      <option value="4">Seorang perempuan harus beradab sejak masa kecilnya</option>
+      <option value="5">Bersuci Memakai Batu</option>
+      <option value="6">Rukun Wudhu</option>
+      <option value="7">Air terbagi kepada dua macam</option>
+      <option value="8">Yang mewajibkan mandi</option>
+      <option value="9">Fardhu mandi wajib</option>
+      <option value="10">Yang membatalkan wudhu</option>
+      <option value="11">Larangan orang yang berhadats kecil</option>
+      <option value="12">Larangan orang yang berhadats besar</option>
+      <option value="13">Larangan perempuan yang sedang haidh</option>
+    </select>
+  </div>
+  <div class="kelompok">
+    <h1 id="babTitle">Pilih Bab</h1>
+    <p id="babContent"></p>
+    <p id="babContent1"></p>
+    <ul id="babPoints"></ul>
+  </div>
+  <script>
+    function showBab(id) {
+      var title = '';
+      var content = '';
+      var content1 = '';
+      var points = [];
+
+      if (id === '1') {
+        title = 'A: Kewajiban Belajar.';
+        content = 'Rasulullah saw bersabda: Menuntut ilmu wajib bagi muslim laki-laki dan muslim perempuan. Perlu diketahui bahwa, kewajiban menuntut ilmu bagi muslim laki-laki dan perempuan ini tidak untuk sembarang ilmu, tapi terbatas pada ilmu agama, dan ilmu yang menerangkan cara bertingkah laku atau bermuamalah dengan sesama manusia.';
+        points = [''];
+      } else if (id === '2') {
+        title = 'B: Keutamaan Ilmu';
+        content = 'Tidak seorang pun yang meragukan akan pentingnya ilmu pengetahuan, karena ilmu itu khusus dimiliki umat manusia. Adapun selain ilmu, itu bisa dimiliki manusia dan bisa dimiliki binatang.';
+        points = [''];
+      } else if (id === '3') {
+        title = 'C: Belajar Ilmu Akhlaq';
+        content = 'Setiap orang islam juga wajib mengetahui/mempelajari akhlak yang terpuji dan yang tercela, seperti watak murah hati, kikir, penakut, pemberani, merendah diri, congkak, menjaga diri dari keburukan, israf (berlebihan), bakhil terlalu hemat dan sebagainya.';
+        points = [''];
+      } else if (id === '4') {
+        title = 'D: Pentingnya Adab Sejak Kecil';
+        content = 'Seorang perempuan harus dibiasakan beradab sejak masa kecilnya agar tumbuh menjadi pribadi yang santun dan berakhlak mulia.';
+        points = [''];
+      } else if (id === '5') {
+        title = 'E: Bersuci Memakai Batu';
+        content = 'Dalam keadaan tidak ada air, bersuci dapat dilakukan dengan menggunakan batu atau benda kesat lainnya untuk menghilangkan najis.';
+        points = [''];
+      } else if (id === '6') {
+        title = 'F: Rukun Wudhu';
+        content = 'Rukun wudhu meliputi niat, membasuh wajah, membasuh kedua tangan hingga siku, mengusap sebagian kepala, dan membasuh kedua kaki hingga mata kaki.';
+        points = [''];
+      } else if (id === '7') {
+        title = 'G: Air Terbagi Kepada Dua Macam';
+        content = 'Air dalam fiqh dibagi menjadi dua: air suci mensucikan dan air suci tidak mensucikan. Air suci mensucikan adalah air yang dapat digunakan untuk bersuci, sedangkan air suci tidak mensucikan tidak dapat digunakan untuk bersuci.';
+        points = [''];
+      } else if (id === '8') {
+        title = 'H: Yang Mewajibkan Mandi';
+        content = 'Hal-hal yang mewajibkan mandi antara lain: keluarnya mani, bersetubuh, haid, nifas, melahirkan, dan meninggal dunia.';
+        points = [''];
+      } else if (id === '9') {
+        title = 'I: Fardhu Mandi Wajib';
+        content = 'Fardhu dalam mandi wajib adalah niat dan meratakan air ke seluruh tubuh.';
+        points = [''];
+      } else if (id === '10') {
+        title = 'J: Yang Membatalkan Wudhu';
+        content = 'Hal-hal yang membatalkan wudhu antara lain: keluar sesuatu dari dua jalan (qubul dan dubur), hilang akal, menyentuh kemaluan tanpa penghalang, dan bersentuhan kulit antara laki-laki dan perempuan yang bukan mahram tanpa penghalang.';
+        points = [''];
+      } else if (id === '11') {
+        title = 'K: Larangan Orang yang Berhadats Kecil';
+        content = 'Orang yang berhadats kecil dilarang melaksanakan shalat, tawaf, dan menyentuh mushaf Al-Qur\'an sebelum berwudhu.';
+        points = [''];
+      } else if (id === '12') {
+        title = 'L: Larangan Orang yang Berhadats Besar';
+        content = 'Orang yang berhadats besar dilarang melaksanakan shalat, tawaf, menyentuh mushaf Al-Qur\'an, dan berdiam di masjid sebelum mandi wajib.';
+        points = [''];
+      } else if (id === '13') {
+        title = 'M: Larangan Perempuan yang Sedang Haidh';
+        content = 'Perempuan yang sedang haidh dilarang melaksanakan shalat, puasa, tawaf, menyentuh mushaf Al-Qur\'an, dan berdiam di masjid hingga suci dan mandi wajib.';
+        points = [''];
+      }
+
+      document.getElementById('babTitle').innerText = title;
+      document.getElementById('babContent').innerText = content;
+      document.getElementById('babContent1').innerText = content1;
+
+      var ul = document.getElementById('babPoints');
+      ul.innerHTML = '';
+      for (var i = 0; i < points.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = points[i];
+        ul.appendChild(li);
+      }
+    }
+  </script>
+
+</body>
+</html>

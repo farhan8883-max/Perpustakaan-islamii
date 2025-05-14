@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Kitab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="isi">
+        <button class="back-btn" onclick="history.back()">Kembali</button>
+    </div>
+    
+  <div class="select-container">
+    <label for="babSelect">Pilih Bab:</label>
+    <select id="babSelect" onchange="showBab(this.value)">
+      <option value="">-- Pilih Bab --</option>
+      <option value="1">Sifat Wujud</option>
+      <option value="2">Sifat Qidam</option>
+      <option value="3">Sifat Baqo</option>
+      <option value="4">Sifat Mukhalafatulilhawadisi</option>
+      <option value="5">Sifat Qiyamuhubinnafsihi</option>
+      <option value="6">Sifat Wahdaniaya</option>
+      <option value="7">Sifat Qudrat</option>
+      <option value="8">Sifat Iradat</option>
+      <option value="9">Sifat Ilmu</option>
+      <option value="10">Sifat Hayat</option>
+      <option value="11">Sifat Sama'Bashar</option>
+      <option value="12">Sifat Kalam</option>
+      <option value="13">Sifat Qadiran</option>
+      <option value="14">Sifat Muridan</option>
+      <option value="15">Sifat Alimat</option>
+      <option value="16">Sifat Hayyan</option>
+      <option value="17">Sifat Sami'an Bashiran</option>
+      <option value="18">Sifat Mutakaliman</option>
+      <option value="19">Sifat Jaiz Bagi Allah</option>      
+      <option value="20">SIFAT WAJIB BAGI RASUL</option>
+      <option value="21">Shidiq(jujur)</option>
+      <option value="22">Amanah(dapat di percaya)</option>
+      <option value="23">Tabligh(Menyampaikan)</option>
+      <option value="24">Fathonah(Cerdas)</option>
+      <option value="25">SIFAT JAIZ RASUL</option>
+      <option value="26">Penutup</option>
+      <option value="27">SILSILAH NASAB RASULULLAHL</option>
+    </select>
+  </div>
+  <div class="kelompok">
+    <h1 id="babTitle">Tijan addarori</h1>
+    <p id="babContent">Segala puji hanya milik Allah s.w.t. Tuhan semesta alam, sanjungan Shalawat serta Salam semoga senantiasa terlimpahkan kepada Rasūlullāh s.a.w., dan setelah itu (membaca basmalah, ḥamdalah, shalawat dan salām).Berkatalah seseorang yang sangat memdambakan Rahmat Tuhannya Yang Maha Waspada serta Maha Melihat, yaitu Syaikh Ibrāhīm al-Bājūrī yang memiliki sifat lalai.</p>
+    <p id="babContent1">Beberapa dari saudara-saudaraku – semoga Allah memberi kebaikan kondisi dan urusan padaku dan pada mereka – telah memohon kepadaku agar aku menuliskan untuk mereka sebuah risalah yang memuat sifat-sifat wajib (sesuatu yang tidak dapat diterima akal ketidak adaannya) dan sifat kebalikannya (sesuatu yang tidak dapat diterima akal adanya), serta hal-hal yang boleh dalam ḥaqq Allah s.w.t., juga sifat yang wajib, yang mustaḥīl sesuatu yang tidak bisa diterima akal adanMaka, akupun mengabulkan permohonan mereka – hanya kepada Allah aku memohon pertolongan – .</p>
+    <ul id="babPoints"></ul>
+  </div>
+  <script>
+    function showBab(id) {
+      var title = '';
+      var content = '';
+      var content1 = '';
+      var points = [];
+
+      if (id === '1') {
+        title = 'Sifat Wujud';
+        content = 'Maka Wajib pada ḥaqqnya Allah s.w.t., sifat Wujūd (ada).Kebalikannya adalah sifat ‘Adam (tidak ada). Dalil bahwa Allah s.w.t., itu ada adalah adanya makhluk (semua hal selain Allah).';
+        points = [];
+      } else if (id === '2') {
+        title = 'SIFAT QIDAM';
+        content = 'Dan Wajib pada ḥaqqnya Allah s.w.t., sifat al-Qidam (terdahulu). Artinya, sesungguhnya Allah s.w.t. tiada permulaan bagi-Nya.Kebalikannya adalah sifat al-Ḥudūts(baru).Dalil bahwasanya Allah s.w.t. bersifatan terdahulu adalah: seandainya Allah adalah sesuatu yang baru. Maka Allah s.w.t. butuh pada yang menciptakan. Dan hal itu tidak bisa diterima akal (mustaḥīl).';
+        content1 = ''
+       points = [''];
+      } else if (id === '3') {
+        title = '   SIFAT BAQO';
+        content = 'Wa yajibu fī ḥaqqihi taʿālā al-baqāʾu, wa maʿnāhu annahu taʿālā lā ākhira lahu, wa al-dalīlu ʿalā dhālika annahu law kāna fāniyan lakāna ḥādithan, wa huwa muḥāl.';
+        content1 = 'Dan Wajib pada ḥaqqnya Allah s.w.t., sifat al-Baqā’ (kekal). Artinya, sesungguhnya Allah s.w.t. tiada akhir baginya. Dan dalil atas sifat kekalnya Allah s.w.t. adalah: seandainya Allah adalah sesuatu yang rusak (fanā’), maka tentunya Allah adalah sesuatu yang baru. Dan hal itu tidak dapat diterima akal (mustaḥīl).'
+      } else if (id === '4') {
+        title = ' SIFAT MUKHALAFATULILHAWADISI';
+        content = 'Dan Wajib pada ḥaqqnya Allah s.w.t., sifat Mukhālafatu lil-Ḥawādits (berbeda dengan makhluk). Artinya, sesungguhnya Allah s.w.t. tidak menyerupai kepada segala hal yang bersifat baru (makhluk). Maka, Allah tidak memiliki tangan, tidak memiliki mata, tidak memiliki telinga dan tidak pula memiliki yang lainnya dari sifat-sifat makhluk. Kebalikannya adala sifat al-Mumātsalah(menyerupai). Dalil bahwasanya Allah s.w.t. tidak menyerupai makhluk adalah: seandainya Allah memiliki keserupaan dengan makhluk, maka tentunya Allah adalah sesuatu yang baru. Dan hal itu tidak bisa diterima akal (mustaḥīl).';
+        points = [''];
+      } else if (id === '5') {
+        title = ' SIFAT QIYAMUHUBINNAFSIH';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat al-Qiyāmu bin-Nafsi (berdiri sendiri). Artinya, sesungguhnya Allah s.w.t. tidak membutuhkan tempat dan tidak butuh pada yang mewujudkan. Kebalikannya adalah sifat al-Iḥtiyāju ilal-Maḥalli wal-Mukhashshish (membutuhkan pada tempat dan pencipta). Dalil bahwasanya Allah s.w.t. bersifat berdiri sendiri adalah: seandainya Allah s.w.t. membutuhkan pada tempat, maka Allah adalah sebuah sifat sedangkan keadaan Allah sebuah sifat adalah hal yang tidak bisa diterima akal (mustaḥīl).Dan seandainya Allah membutuhkan pada yang menciptakan, maka tentunya Allah adalah sesuatu yang baru. Dan keadaan Allah merupakan sesuatu yang baru adalah hal yang tidak bisa diterima akal (mustaḥīl)';
+        points = [''];
+      } else if (id === '6') {
+        title = 'SIFAT WAHDANIYA';
+        content = 'Wa yajibu fī ḥaqqihi taʿālā al-wahdāniyyah, wa maʿnāhā annahu taʿālā lā sharīka lahu fī dhātihi wa ṣifātihi wa afʿālihi, wa ḍidduhā al-taʿaddud, wa al-dalīlu ʿalā dhālika annahu law kāna lahu sharīkun lakāna mumkin al-wujūd, wa al-mumkin yaḥtāju ilā mukhaṣṣiṣ, wa al-iḥtiyāj muḥāl ʿalā Allāh taʿālā.';
+        content1 = 'Wajib pada ḥaqqnya Allah s.w.t., sifat al-Waḥdāniyyah (tunggal). Baik dalam Dzat-Nya, Sifat-Nya dan Perbuatan-Nya. Pengertian tungal dalam Dzat-Nya adalah, sesungguhnya dzatnya Allah tidak tersusun dari berbagai bagian yang banyak. Sedangkan pengertian tunggal dalam sifat-Nya adalah, sesungguhnya tidak ada bagi Allah dua sifat atau lebih dari satu jenis sifat, seperti adanya dua sifat Qudrah dan seterusnya. Dan tidak ada pada selain Allah satu sifat yang menyerupai terhadap sifatnya Allah s.w.t.Arti tunggal dalam perbuatan-Nya adalah, sesungguhnya tidak ada bagi selain Allah suatu perbuatan dari perbuatan-perbuatannya (semua pekerjaan makhluk adalah atas kekuatan yang diberikan oleh Allah s.w.t.). Kebalikannya adalah sifat atTa‘addud (berbilang). Dalil bagi sifat Tunggalnya Allah s.w.t. adalah: seandainya Allah adalah sesuatu yang berbilang, maka tentunya tidak akan dapat dijumpai sesuatu pun dari Makhlūq(sesuatu selain Allah) ini';
+      } else if (id === '7') {
+        title = 'Bab 7: Sifat Qudrat';
+        content = 'Wa yajibu fī ḥaqqihi taʿālā al-qudrah, wa maʿnāhā annahu taʿālā qādirun ʿalā ikhtirāʿi al-mumkināt, wa ḍidduhā al-ʿajz, wa al-dalīlu ʿalā dhālika annahu law kāna ʿājizan lakāna nāqiṣan, wa al-nuqṣān muḥāl ʿalā Allāh taʿālā.';
+        content1 = 'Wajib pada ḥaqqnya Allah s.w.t., sifat al-Qudrah (Maha Berkuasa). Sifat Qudrahadalah suatu sifat terdahulu yang menetap pada Dzatnya Allah s.w.t. yang dengan sifat tersebut Allah mewujudkan dan meniadakan sesuatu. Kebalikannya adalah sifat al-‘Ajz (lemah). Dalil bahwa Allah s.w.t. bersifat Maha Berkuasa adalah: seandainya Allah lemah, maka tentunya tidak akan dapat dijumpai sesuatu pun dari makhluq-Nya. ';
+      } else if (id === '8') {
+        title = 'Bab 8: sifat iradat';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat al-Irādah (Maha Berkehendak). Sifat Irādah adalah suatu sifat terdahulu yang menetap pada Dzatnya Allah s.w.t. yang dengan sifat tersebut Allah menentukan hal yang mungkin menjadi wujud atau tidak wujud atau kaya atau miskin atau mengerti atau bodoh dan seterusnya. Kebalikannya adalah sifat al-Karāhah(terpaksa). Dalil bahwa Allah s.w.t. memiliki sifat Maha Berkehendak adalah: Seandainya Allah terpaksa, maka tentunya Allah bersifat lemah. Dan adanya Allah bersifat lemah adalah hal yang tidak bisa diterima akal (mustaḥīl).';
+        content1 = 'Wa yajibu fī ḥaqqihi taʿālā al-irādah, wa maʿnāhā annahu taʿālā murīdun li-afʿālihi ḥasba mā yashāʾ, wa ḍidduhā al-karāhah, wa al-dalīlu ʿalā dhālika annahu law kāna mukrahan lakāna nāqiṣan, wa al-nuqṣān muḥāl ʿalā Allāh taʿālā.';
+      } else if (id === '9') {
+        title = 'Sifat Ilmu';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat al-‘Ilmu (Maha Mengetahui). Sifat al-‘ilmu adalah sifat terdahulu yang menetap pada Dzatnya Allah s.w.t. yang dengan sifat tersebut Allah mengetahui semua hal. Kebalikannya adalah sifat al-Jahl (bodoh). Dalil bahwa Allah s.w.t. memiliki sifat Maha Mengetahui adalah: seandainya Allah memiliki sifat bodoh, maka tentunya Allah tidak memiliki sifat Maha Berkehendak. Dan hal itu adalah hal yang tidak bisa diterima akal (mustaḥīl).';
+        points = [''];
+      } else if (id === '10') {
+        title = 'SIFAT HAYAT';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat al-Ḥayāh (Maha Hidup). Sifat al-Ḥayāhadalah sifat terdahulu yang menetap pada Dzatnya Allah s.w.t. yang dengan sifat tersebut dapat membenarkan bahwa Allah memiliki sifat ‘Ilmu dan sifat-sifat lainnya. Kebalikannya adalah sifat al-Maut (Mati). Dalil bahwa Allah s.w.t. memiliki sifat Maha Hidup adalah: Seandainya Allah mati, maka tentunya Allah tidak memiliki sifat Maha Berkuasa dan Maha Berkehendak, dan hal itu adalah hal yang tidak bisa diterima akal (mustaḥīl).';
+      } else if (id === '11') {
+        title = 'Sifat Sama\'Bashar';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat as-Sama‘ (Maha Mendengar) dan al-Bashar (Maha Melihat). Keduanya adalah sifat terdahulu yang menetap pada Dzatnya Allah s.w.t. yang dengan keduanya menjadi terbukalah hal yang wujud. Kebalikannya adalah sifat as-Shamam(Tuli) dan al-‘Amā (Buta). Dalil bahwa Allah s.w.t. memiliki sifat Maha Mendengar dan Maha Melihat adalah firman Allah s.w.t.:';
+        content1 = '(وَ هُوَ السَّمِيْعُ الْبَصِيْرُ)Dialah Allah Dzat yang Maha Mendengar dan Maha Melihat (asy-Syūrā, ayat 11).';
+      } else if (id === '12') {
+        title = 'sifat Kalam';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat al-Kalām (Maha Berfirman). Sifat Kalām adalah sifat terdahulu yang menetap pada Dzatnya Allah s.w.t. dan tidak berwujud huruf dan tidak berwujud suara. Kebalikannya adalah sifat al-Bukmu yaitu al-Kharas (Bisu). Dalil bahwa Allah s.w.t. memiliki sifat Maha Mengetahui adalah firman Allah s.w.t.:';
+        content1 = '(وَ كَلَّمَ اللهُ مُوْسَى تَكْلِيْمًا)Dan Allah telah berfirman kepada Mūsā dengan Firman yang Nyata (An-Nisā’, ayat 164).'
+      } else if (id === '13') {
+        title = 'Sifat Qadiran';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat Kaunuhu Qādiran (adanya Allah Dzat yang Maha Kuasa). Kebalikannya adalah sifat Kaunuhu ‘Ājizan(adanya Allah Dzat yang lemah).Dalil bahwa Allah s.w.t. memiliki sifat adanya Allah Dzat yang Maha Kuasa adalah sebagaimana dalilnya sifat al-Qudrah (Maha Berkuasa).';
+      } else if (id === '14') {
+        title = 'sifat Muridan';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat Kaunuhu Murīdan (adanya Allah Dzat yang Maha Berkehendak). Kebalikannya adalah sifat Kaunuhu Kārihan (adanya Allah Dzat yang terpaksa).Dalil bahwa Allah s.w.t. memiliki sifat adanya Allah Dzat yang Maha Berkehendak adalah dalil sifat al-Irādah(Maha Berkehendak).';
+        points = [];
+      } else if (id === '15') {
+        title = 'sifat Aliman';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat Kaunuhu ‘Āliman (adanya Allah Dzat yang Maha Mengetahui). Kebalikannya adalah sifat Kaunuhu Jāhilan (adanya Allah Dzat yang Bodoh). Dalil bahwa Allah s.w.t. memiliki sifat adanya Allah Dzat yang Maha Mengetahui adalah dalil sifat al-‘Ilmu (Maha Mengetahui).';
+        points = [];
+      } else if (id === '16') {
+        title = 'sifat Hayyan';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat Kaunuhu Ḥayyan (adanya Allah Dzat yang Maha Hidup). Kebalikannya adalah sifat Kaunuhu Mayyitan (adanya Allah Dzat yang Mati). Dalil bahwa Allah s.w.t. memiliki sifat yang Maha Hidup adalah dalil sifat al-Ḥayyāh(Maha Hidup).';
+        points = [];
+      } else if (id === '17') {
+        title = 'sifat SAMI,AN DAN BASHIRAN';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat Kaunuhu Samī‘an (adanya Allah Dzat yang Maha Mendengar) dan Kaunuhu Bashīran(adanya Allah Dzat yang Maha Melihat). Kebalikannya adalah sifat Kaunuhu ‘Ashamma (adanya Allah Dzat yang Tuli) adan Kaunuhu A‘mā (adanya Allah Dzat yang Maha Buta). Dalil bahwa Allah s.w.t. memiliki sifat adanya Allah Dzat yang Maha Mendengar dan adanya Allah Dzat yang Maha Melihat adalah dalil sifat as-Sama‘ dan dalil sifat al-Bashar (Maha Mendengar dan Maha Melihat).';
+        points = [];
+      } else if (id === '18') {
+        title = 'sifat MUTAKALIMAN';
+        content = 'Wajib pada ḥaqqnya Allah s.w.t., sifat Kaunuhu Mutakalliman (adanya Allah Dzat yang Maha Berfirman). Kebalikannya adalah sifat Kaunuhu Abkama (adanya Allah Dzat yang Bisu). Dalil bahwa Allah memiliki sifat adanya Allah s.w.t. Dzat yang Maha Berfirman adalah dalil sifat al-Kalām (Maha Berfirman).';
+        points = [];
+      } else if (id === '19') {
+        title = 'sifat jaiz Bagi Allah';
+        content = 'Wa al-jāʾizu fī ḥaqqihi taʿālā fiʿlu kulli mumkinin aw tarkuhu, wa al-dalīlu ʿalā dhālika annahu law wajaba ʿalayhi subḥāna Allāhi wa taʿālā fiʿlu shayʾin aw tarkuhu, laṣāra al-jāʾizu wājiban aw mustaḥīlan, wa huwa muḥāl.';
+        content1 = 'Boleh bagi ḥaqqnya Allah s.w.t. bersifat mengerjakan setiap perkara yang mungkin atau meninggalkannya. Dalil bahwa Allah s.w.t. bersifat mengerjakan setiap perkara yang mungkin atau meninggalkannya adalah seandainya Allah berkewajiban untuk mengerjakan sesuatu atau berkewajiban untuk meninggalkannya niscaya sifat Jā’iztersebut menjadi Wājib atau Mustaḥīl. Dan hal itu adalah hal yang tidak dapat diterima oleh akal (mustaḥīl).';
+      } else if (id === '20') {
+        title = 'SIFAT WAJIB BAGi RASUL';
+        content = 'Wa yajibu fī ḥaqqi al-rusuli ʿalayhimu al-ṣalātu wa al-salām al-ṣidqu wa ḍidduhu al-kidhibu wa al-dalīlu ʿalā dhālika annahum law kadhibū lakāna khabaru Allāhi subḥānahu wa taʿālā kādhiban wa huwa muḥāl.Wa yajibu fī ḥaqqihim ʿalayhimu al-ṣalātu wa al-salām al-amānah wa ḍidduhā al-khiyānah wa al-dalīlu ʿalā dhālika annahum law khānū bifiʿlin muḥarramin aw makrūhin lakunnā maʾmūrīna bimithli dhālika wa lā yaṣiḥḥu an nuʾmara bimuḥarramin aw makrūhin.Wa yajibu fī ḥaqqihim ʿalayhimu al-ṣalātu wa al-salām tablīghu mā umirū bitablīghihi lil-khalqi wa ḍidduhu kitmānu dhālika wa al-dalīlu ʿalā dhālika annahum law katamū shayʾan umirū bitablīghihi lakunnā maʾmūrīna bikitmān al-ʿilmi wa lā yaṣiḥḥu an nuʾmara bihi liʾanna kātima al-ʿilmi malʿūn.Wa yajibu fī ḥaqqihim ʿalayhimu al-ṣalātu wa al-salām al-faṭānah wa ḍidduhā al-balādah wa al-dalīlu ʿalā dhālika annahu law intafat ʿanhumu al-faṭānah lamā qadarū an yuqīmū ḥujjah ʿalā al-khaṣmi wa huwa muḥāl liʾanna al-Qurʾāna dalla fī mawāḍiʿa kathīrah ʿalā iqāmatihimu al-ḥujjata ʿalā al-khaṣmi.Wa al-jāʾizu fī ḥaqqihim ʿalayhimu al-ṣalātu wa al-salām al-aʿrāḍu al-bashariyyah allatī lā tuʾaddī ilā naqṣin fī marātibihimu al-ʿaliyyah ka al-maraḍi wa naḥwihi wa al-dalīlu ʿalā dhālika mushāhadatuhā bihim ʿalayhimu al-ṣalātu wa al-salām.';
+        points = [];
+      } else if (id === '21') {
+        title = 'Shidiq (jujur)';
+        content = 'Dan wajib bagi ḥaqqnya para rasūl ‘Alaihim-ush-Shalātu was-Salām sifat ash-Shiddīq (Benar atau Jujur). Kebalikannya adalah sifat al-Kidzbu(Berbohong). Dalil bahwa para rasul memiliki sifat ash-Shidqu adalah seandainya para rasul berbohong niscaya berita/khabar dari Allah s.w.t. adalah suatu hal yang tidak benar/bohong. Dan hal itu tidak dapat diterima oleh akal (mustaḥīl).';
+        points = [];
+      } else if (id === '22') {
+        title = 'AMANAH (DAPAT DIPERCAYA)';
+        content = 'Dan wajib bagi ḥaqqnya para rasūl ‘Alaihim-ush-Shalātu was-Salām sifat al-Amānah (dapat dipercaya/terpercaya). Kebalikannya adalah sifat al-Khiayānat(Berkhianat/tidak dapat dipercaya). Dalil bahwa para rasul memiliki sifat al-Amānah adalah seandainya pula rasul berkhianat dengan berbuat hal yang diharamkan atau yang dimakruhkan niscaya kita semua diperintahkan dengan hal yang serupa. Dan tidak benar jika kita diperintah untuk melakukan hal yang diharamkan atau yang dimakruhkan.';
+        points = [];
+      } else if (id === '23') {
+        title = 'Tabligh(Menyampaikan)';
+        content = 'Dan wajib bagi ḥaqqnya para rasūl ‘Alaihim-ush-Shalātu was-Salām sifat Tablīghu Mā Umirū bi Tablīghihi(Menyampaikan hal yang diperintahkan untuk disampaikan). Kebalikannya adalah sifat Kitmān (Menyembunyikan hal yang diperintahkan untuk disampaikan) Dalil bahwa para rasul memiliki sifat Tablīghu Mā Umiru bi Tablīghihi adalah seandainya para rasul menyembunyikan suatu hal yang diperintahkan untuk disampaikan, niscaya kita diperintahkan untuk menyembunyikan ilmu. Dan tidak benar jika kita diperintah untuk itu. Karena sesungguhnya orang yang menyembunyikan ilmu itu dilaknat.';
+        points = [];
+      } else if (id === '24') {
+        title = 'Fathonah (cerdas)';
+        content = 'Dan wajib bagi ḥaqqnya para rasūl ‘Alaihim-ush-Shalātu was-Salām sifat al-Fathanah (Cerdas/Pandai). Dalil bahwa para rasul memiliki kecerdasan niscaya mereka tidak akan mampu untuk berhujjah mengalahkan para lawan/musuhnya. Dan hal itu tidak dapat diterima akal. Karena al-Qur’ān telah menunjukkan dalam banyak tempat atas kemampuan para rasul berhujjah mengalahkan para lawan/musuhnya.';
+        points = [];
+      } else if (id === '25') {
+        title = 'SIFAT JAIZ RASUL';
+        content = 'Boleh bagi ḥaqqnya para rasūl ‘Alaihim-ush-Shalātu was-Salām sifat al-A‘rādh-ul-Basyariyyah (sifat Manusiawi) yang tidak sampai mendatangkan pada rendahnya martabat mereka yang luhur, seperti sakit dan semisalnya. Dalil bahwa para rasul memiliki sifat Manusiawi (al-A‘rādh-ul-Basyariyyah) adalah kenyataan yang dapat disaksikan pada diri para rasul ‘Alaihim-ush-Shalātu was-Salām.';
+        points = [];
+      } else if (id === '26') {
+        title = 'Khātimah (Penutup)';
+        content = 'Yajibu ʿala al-shakhṣi an yaʿrifa nasabahu ṣallā Allāhu ʿalayhi wa sallam min jihati abīhi wa min jihati ummihi.Fa ammā nasabuhu ṣallā Allāhu ʿalayhi wa sallam min jihati abīhi fahuwa Sayyidunā Muḥammad ibn ʿAbdillāh ibn ʿAbd al-Muṭṭalib ibn Hāshim ibn ʿAbd Manāf ibn Quṣayy ibn Kilāb ibn Murrah ibn Kaʿb ibn Luʾayy ibn Ghālib ibn Fihr ibn Mālik ibn al-Naḍr ibn Kinānah ibn Khuzaymah ibn Mudrikah ibn Ilyās ibn Muḍar ibn Nizār ibn Maʿadd ibn ʿAdnān. Wa laysa fīmā baʿdahu ilā Ādam ʿalayhi al-ṣalātu wa al-salām ṭarīqun ṣaḥīḥun fīmā yunqal.Wa ammā nasabuhu ṣallā Allāhu ʿalayhi wa sallam min jihati ummihi fahuwa Sayyidunā Muḥammad ibn Āminah bint Wahb ibn ʿAbd Manāf ibn Zuhrah ibn Kilāb. Fatajtaʿimu maʿahu ṣallā Allāhu ʿalayhi wa sallam fī jaddihi Kilāb.';
+        points = [];
+      } else if (id === '27') {
+        title = 'SILSILAH NASAB RASULULLAH';
+        content = 'Wajib bagi semua orang untuk mengetahui silsilah Nabi s.a.w., baik dari pihak ayah Beliau maupun dari pihak ibu Beliau.Adapun silsilah Nabi s.a.w., dari jalur ayah beliau adalah, baginda kita Muḥammad s.a.w., adalah putra ‘Abdullāh putranya ‘Abd-ul-Muththalib putranya Hāsyim putranya ‘Abdu Manāf putranya Qushay putranya Kilāb putranya Murrah putranya Ka‘b putranya Lu’ay putranya Ghālib putranya Fihr putranya Mālik putranya Nadhar putranya Kinānah purtranya Khuzaimah putranya Mudrikah putranya Ilyās putranya Mudhar putranya Nizār putranya Ma‘add putranya ‘Adnān. Dan – sampai Sayyid ‘Adnān ini – tidak ada silsilah yang Shaḥīḥ hingga Nabi ‘Ādam a.s.Adapun silsilah Nabi s.a.w., dari jalur ibunya adalah, Baginda kita Muḥammad s.a.w., adalah putra Āminah putrinya Wahb putranya ‘Abdu Manāf putranya Zuhrah putranya Kilāb. Maka bertemulah Sayyidah Āminah beserta Nabi s.a.w., pada kakeknya, yakni Sayyid Kilāb.';
+        points = [];
+      }
+
+      document.getElementById('babTitle').innerText = title;
+      document.getElementById('babContent').innerText = content;
+      document.getElementById('babContent1').innerText = content1;
+
+      var ul = document.getElementById('babPoints');
+      ul.innerHTML = '';
+      for (var i = 0; i < points.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = points[i];
+        ul.appendChild(li);
+      }
+    }
+  </script>
+
+</body>
+</html>

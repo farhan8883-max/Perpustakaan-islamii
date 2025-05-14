@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Sholat Bandung</title>
+  <style>
+    /* Reset dan pengaturan dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    th {
+      background-color: rgba(255, 255, 255, 0.2);
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .clock {
+      text-align: center;
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    /* Responsif untuk perangkat mobile */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      table {
+        font-size: 0.9em;
+      }
+
+      .clock {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Jadwal Sholat Bandung</h1>
+    <div class="clock" id="clock">--:-- WIB</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Waktu</th>
+          <th>Jam</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Imsak</td><td>04:23</td></tr>
+        <tr><td>Subuh</td><td>04:33</td></tr>
+        <tr><td>Dzuhur</td><td>11:49</td></tr>
+        <tr><td>Ashar</td><td>15:10</td></tr>
+        <tr><td>Maghrib</td><td>17:48</td></tr>
+        <tr><td>Isya</td><td>18:55</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <audio id="adzan-audio" src="adzan.mp3" preload="auto"></audio>
+
+  <script>
+    const jadwalSholat = {
+      "Imsak": "04:23",
+      "Subuh": "04:33",
+      "Dzuhur": "11:49",
+      "Ashar": "15:10",
+      "Maghrib": "17:48",
+      "Isya": "18:55"
+    };
+
+    const clockElement = document.getElementById('clock');
+    const adzanAudio = document.getElementById('adzan-audio');
+    const sudahDibunyikan = {};
+
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2,'0');
+      const minutes = now.getMinutes().toString().padStart(2,'0');
+      const seconds = now.getSeconds().toString().padStart(2,'0');
+      clockElement.textContent = `${hours}:${minutes}:${seconds} WIB`;
+
+      const currentTime = `${hours}:${minutes}`;
+
+      for (const [waktu, jam] of Object.entries(jadwalSholat)) {
+        if (currentTime === jam && !sudahDibunyikan[waktu]) {
+          alert(`Waktu ${waktu} telah tiba. Silakan menunaikan sholat.`);
+          adzanAudio.play().catch(error => {
+            console.log("Gagal memutar audio adzan:", error);
+          });
+          sudahDibunyikan[waktu] = true;
+        }
+      }
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
