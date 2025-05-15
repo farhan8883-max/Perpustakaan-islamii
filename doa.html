@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hadis Arbain An-Nawawi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="isi">
+    <button class="back-btn" onclick="history.back()">Kembali</button>
+  </div>
+
+  <div class="select-container">
+    <label for="hadisSelect">Pilih Hadis:</label>
+    <select id="hadisSelect" onchange="showHadis(this.value)">
+      <option value="">-- Pilih Doa --</option>
+      <option value="1">1: Doa Sebelum Tidur</option>
+      <option value="2">2: Doa Bangun Tidur</option>
+      <option value="3">3: Doa Sebelum Makan</option>
+      <option value="4">4: Doa Sesudah Makan</option>
+      <option value="5">5: Doa Sebelum Wudhu</option>
+      <option value="6">6: Doa Setelah Wudhu</option>
+      <option value="7">7: Doa Mendengar Orang Bersin</option>
+      <option value="8">8: Doa Menjenguk Orang Sakit</option>
+      <option value="9">9: Doa Masuk Kamar Mandi</option>
+      <option value="10">10: Doa Keluar Kamar Mandi</option>      
+      <option value="11">11: Doa Ketika Bercermin</option>     
+      <option value="12">12: Doa Keluar Rumah</option>      
+      <option value="13">13: Doa Masuk Rumah</option>      
+      <option value="14">14: Doa Sebelum Belajar</option>      
+      <option value="15">15: Doa Sesudah Belajar</option>      
+      <option value="16">16: Doa Sebelum Membaca Al-Quran</option>      
+      <option value="17">17: Doa Setelah Membaca Al-Qur'an</option>      
+      <option value="18">18: Doa Sebelum Doa Hendak Bepergian</option>      
+      <option value="19">19: Doa Ketika Sampai di Tempat Tujuan</option>      
+      <option value="20">20: Doa Memakai Pakaian</option>      
+
+
+
+      <!-- <option value="41">Hadis 41: Mengikuti Syariat Tiang iman</option>
+      <option value="42">Hadis 42: Luasnya Ampunan Allah</option> -->
+    </select>
+  </div>
+
+  <div class="kelompok">
+    <h1 id="hadisTitle">Doa Doa Pendek</h1>
+    <p id="hadisContent">Pilih Doa di atas</p>
+    <p id="hadisContent1"></p>
+  </div>
+
+  <script>
+  const hadisData = {
+  1: {
+    title: "Doa 1: Doa Sebelum Tidur",
+    content: "بِسْمِكَ اللّهُمَّ اَحْيَا وَ بِسْمِكَ اَمُوْتُ",
+    content1: "Artinya: “Dengan nama-Mu ya Allah aku hidup, dan dengan nama-Mu aku mati”. (HR.Bukhari dan Muslim)."
+  },
+  2: {
+    title: "Doa 2: Doa Bangun Tidur",
+    content: "اَلْحَمْدُ لِلَّهِ الَّذِيْ أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرِ",
+    content1: "Artinya: 'Segala puji bagi-Mu, ya Allah, yang telah menghidupkan kembali diriku setelah kematianku, dan hanya kepada-Nya nantinya kami semua akan dihidupkan kembali.” (HR.Ahmad, Bukhari, dan Muslim)."
+  },
+  3: {
+    title: "Doa 3: Doa Sebelum Makan",
+    content: "اَللَّهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
+    content1: "Artinya: 'Ya Allah, berkahilah untukku dalam sesuatu yang Engkau rezekikan kepadaku, dan peliharalah aku dari siksa neraka.” (HR.Ibnu Sunni)."
+  },
+  4: {
+    title: "Doa 4: Doa Sesudah Makan",
+    content: "اَلْحَمْدُ ِللهِ الَّذِيْنَ اَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مِنَ الْمُسْلِمِيْنَ",
+    content1: "Artinya: 'Segala puji bagi Allah yang telah memberi kami makan dan minum serta menjadikan kami termasuk golongan orang muslim.” (HR.Ahmad, Abu Dawud, Tirmidzi)."
+  },
+  5: {
+    title: "Doa 5: Doa Sebelum Wudhu",
+    content: "نَوَيْتُ الْوُضُوْءَ لِرَفْعِ الْحَدَثِ اْلاَصْغَرِ فَرْضًاِللهِ تَعَالَى",
+    content1: "Artinya: 'Saya niat berwudhu untuk menghilangkan hadast kecil fardu (wajib) karena Allah ta’ala"
+  },
+  6: {
+    title: "Doa 6: Setelah Wudhu",
+    content: "اَشْهَدُاَنْ لَااِلٰهَ اِلَّا اللّٰهُ وَحْدَهُ لَاشَرِيْكَ لَهُ. وَاَشْهَدُ اَنَّ مُحَمَّدًاعَبْدُهُ وَرَسُوْلُهُ. اَللّٰهُمَّ اجْعَلْنِىْ مِنَاالتَّوَّابِيْنَ، وَجْعَلْنِيْ مِنَ الْمُتَطَهِّرِيْنَ، وَجْعَلْنِىْ مِنْ عِبَادِكَ الصَّالِحِيْنَ",
+    content1: "Artinya: 'Saya bersaksi tiada Tuhan melainkan Allah yang esa , tiada sekutu bagi-Nya . Dan saya bersaksi bahwa nabi Muhammad adalah hamba-Nya dan utusan-Nya . Ya Allah jadikanlah saya orang yang ahli tobat , dan jadikanlah saya orang yang suci , dan jadikanlah saya dari golongan hamba-hamba Mu yang shaleh."
+  },
+  7: {
+    title: "Doa 7: Doa Mendengar Orang Bersin",
+    content: "يَرْحَمُكَ اللهُ",
+    content1: "Artinya: “ Semoga Allah memberikan rahmat kepadamu.”"
+  },
+  8: {
+    title: "Doa 8: Doa Menjenguk Orang Sakit",
+    content: "اللَّهُمَّ رَبَّ النَّاسِ مُذْهِبَ الْبَاسِ اشْفِ أَنْتَ الشَّافِى لاَ شَافِىَ إِلاَّ أَنْتَ ، شِفَاءً لاَ يُغَادِرُ سَقَمًا",
+    content1: "Artinya: 'Ya Allah Wahai Tuhan segala manusia, hilangkanlah penyakitnya, sembukanlah ia. (Hanya) Engkaulah yang dapat menyembuhkannya, tidak ada kesembuhan melainkan kesembuhan dariMu, kesembuhan yang tidak kambuh lagi.”"
+  },
+  9: {
+    title: "Doa 9: Doa Masuk Kamar Mandi",
+    content: "اَللّٰهُمَّ اِنّىْ اَعُوْذُبِكَ مِنَ الْخُبُثِ وَالْخَبَآئِثِ",
+    content1: "Artinya: 'Ya Allah, aku berlindung pada-Mu dari godaan setan laki-laki dan setan perempuan"
+  },
+  10: {
+    title: "Doa 10: Doa Keluar Kamar Mandi",
+    content: "غُفْرَانَكَ الْحَمْدُ ِللهِ الَّذِىْ اَذْهَبَ عَنّى اْلاَذَى وَعَافَانِىْ",
+    content1: "Artinya: 'Dengan mengharap ampunanMu, segala puji milik Allah yang telah menghilangkan kotoran dari badanku dan yang telah menyejahterakan"
+  },
+  11: {
+    title: "Doa 11: Doa Ketika Bercermin",
+    content: "اَلْحَمْدُ ِللهِ كَمَا حَسَّنْتَ خَلْقِىْ فَحَسِّـنْ خُلُقِىْ",
+    content1: "Artinya : 'Segala puji bagi Allah, baguskanlah budi pekertiku sebagaimana Engkau telah membaguskan rupa wajahku"
+  },
+  12: {
+    title: "Doa 12: Doa Keluar Rumah",
+    content: "بِسْمِ اللهِ تَوَكَّلْتُ عَلَى اللهِ لاَحَوْلَ وَلاَقُوَّةَ اِلاَّ بِالله",
+    content1: "Artinya: 'Dengan menyebut nama Allah aku bertawakal kepada Allah, tiada daya kekuatan melainkan dengan pertolongan Allah."
+  },
+  13: {
+    title: "Doa 13: Doa Masuk Rumah",
+    content: "اَللّٰهُمَّ اِنّىْ اَسْأَلُكَ خَيْرَالْمَوْلِجِ وَخَيْرَالْمَخْرَجِ بِسْمِ اللهِ وَلَجْنَا وَبِسْمِ اللهِ خَرَجْنَا وَعَلَى اللهِ رَبّنَا تَوَكَّلْنَا",
+    content1: "Artinya: 'Ya Allah, sesungguhnya aku mohon kepada-Mu baiknya tempat masuk dan baiknya tempat keluar dengan menyebut nama Allah kami masuk, dan dengan menyebut nama Allah kami keluar dan kepada Allah Tuhan kami, kami bertawakkal"
+  },
+  14: {
+    title: "Doa 14: Doa Sebelum Belajar",
+    content: "يَارَبِّ زِدْنِىْ عِلْمًا وَارْزُقْنِىْ فَهْمًا",
+    content1: "Artinya: 'Ya Allah, tambahkanlah aku ilmu dan berikanlah aku rizqi akan kepahaman"
+  },
+  15: {
+    title: "Doa 15: Doa Sesudah Belajar",
+    content: "اَللّٰهُمَّ اِنِّى اِسْتَوْدِعُكَ مَاعَلَّمْتَنِيْهِ فَارْدُدْهُ اِلَىَّ عِنْدَ حَاجَتِىْ وَلاَ تَنْسَنِيْهِ يَارَبَّ الْعَالَمِيْنَ",
+    content1: "Artinya: 'Ya Allah, sesungguhnya aku menitipkan kepada Engkau ilmu-ilmu yang telah Engkau ajarkan kepadaku, dan kembalikanlah kepadaku sewaktu aku butuh kembali dan janganlah Engkau lupakan aku kepada ilmu itu wahai Tuhan seru sekalian alam."
+  },
+  16: {
+    title: "Doa 16: Doa Sebelum Membaca Al-Quran",
+    content: "اَللّٰهُمَّ افْتَحْ عَلَىَّ حِكْمَتَكَ وَانْشُرْ عَلَىَّ رَحْمَتَكَ وَذَكِّرْنِىْ مَانَسِيْتُ يَاذَاالْجَلاَلِ وَاْلاِكْرَامِ",
+    content1: "Artinya: 'Ya Allah bukakanlah hikmahMu padaku, bentangkanlah rahmatMu padaku dan ingatkanlah aku terhadap apa yang aku lupa, wahai Dzat yang memiliki keagungan dan kemuliaan.'"
+  },
+  17: {
+    title: "Doa 17: Doa Setelah Membaca Al-Qur'an",
+    content: "اَللّٰهُمَّ ارْحَمْنِىْ بِالْقُرْآنِ. وَاجْعَلْهُ لِىْ اِمَامًا وَنُوْرًا وَّهُدًى وَّرَحْمَةً. اَللّٰهُمَّ ذَكِّرْنِىْ مِنْهُ مَانَسِيْتُ وَعَلِّمْنِىْ مِنْهُ مَاجَهِلْتُ. وَارْزُقْنِىْ تِلاَ وَتَهُ آنَآءَ اللَّيْلِ وَاَطْرَافَ النَّهَارٍ. وَاجْعَلْهُ لِىْ حُجَّةً يَارَبَّ الْعَالَمِيْنَ",
+    content1: "Artinya: Ya Allah, rahmatilah aku dengan Al-Quran yang agung, jadikanlah ia bagiku ikutan cahaya petunjuk rahmat. Ya Allah, ingatkanlah apa yang telah aku lupa dan ajarkan kepadaku apa yang tidak aku ketahui darinya, anugerahkanlah padaku kesempatan membacanya pada sebagian malam dan siang, jadikanlah ia hujjah yang kuat bagiku, wahai Tuhan seru sekalian alam."
+  },
+  18: {
+    title: "Doa 18: Doa Hendak Bepergian",
+    content: "اَللّٰهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِعَنَّابُعْدَهُ اَللّٰهُمَّ اَنْتَ الصَّاحِبُ فِى السَّفَرِوَالْخَلِيْفَةُفِى الْاَهْلِ",
+    content1: "Artinya: 'Ya Allah, mudahkanlah kami berpergian ini, dan dekatkanlah kejauhannya. Ya Allah yang menemani dalam berpergian, dan Engkau pula yang melindungi keluarga.'"
+  },
+  19: {
+    title: "Doa 19: Doa Ketika Sampai di Tempat Tujuan",
+    content: "اَلْحَمْدُ ِللهِ الَّذِى سَلَمَنِى وَالَّذِى اَوَنِى وَالَّذِى جَمَعَ الشَّمْلَ بِ",
+    content1: "Artinya: 'Segala puji bagi Allah, yang telah menyelamatkan akau dan yang telah melindungiku dan yang mengumpulkanku dengan keluargaku.'"
+  },
+  20: {
+    title: "Doa 20: Doa Memakai Pakaian",
+    content: "بِسْمِ اللهِ اَللّٰهُمَّ اِنِّى اَسْأَلُكَ مِنْ خَيْرِهِ وَخَيْرِ مَاهُوَ لَهُ وَاَعُوْذُبِكَ مِنْ شَرِّهِ وَشَرِّمَا هُوَلَهُ",
+    content1: "Artinya: Dengan nama-Mu yaa Allah akku minta kepada Engkau kebaikan pakaian ini dan kebaikan apa yang ada padanya, dan aku berlindung kepada Engkau dari kejahatan pakaian ini dan kejahatan yang ada padanya"
+  },
+  21: {
+    title: "Doa 21: Doa Memakai Pakaian Baru",
+    content: "اَلْحَمْدُ لِلّٰهِ الَّذِىْ كَسَانِىْ هَذَا وَرَزَقَنِيْهِ مِنْ غَيْرِ حَوْلٍ مِنِّىْ وَلاَقُوَّةٍ",
+    content1: "Artinya: 'Segala puji bagi Allah yang memberi aku pakaian ini dan memberi rizeki dengan tiada upaya dan kekuatan dariku'"
+  },
+  22: {
+    title: "Doa 22: Doa Melepas Pakaian",
+    content: "بِسْمِ اللهِ الَّذِيْ لاَ إِلَهَ إِلَّا هُوَ",
+    content1: "Artinya: 'Dengan nama Allah yang tiada Tuhan selain-Nya"
+  },
+};
+
+
+    function showHadis(id) {
+      const hadis = hadisData[id];
+      if (hadis) {
+        document.getElementById('hadisTitle').innerText = hadis.title;
+        document.getElementById('hadisContent').innerText = hadis.content;
+        document.getElementById('hadisContent1').innerText = hadis.content1;
+      } else {
+        document.getElementById('hadisTitle').innerText = 'Pilih Hadis';
+        document.getElementById('hadisContent').innerText = 'Silakan pilih hadis dari daftar di atas untuk melihat isinya.';
+        document.getElementById('hadisContent1').innerText = 'Silakan pilih hadis dari daftar di atas untuk melihat isinya.';
+      }
+    }
+  </script>
+</body>
+</html>
