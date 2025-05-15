@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hadis Arbain An-Nawawi</title>
+  <title>Doa Harian</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -106,7 +106,7 @@
   <div class="kelompok">
     <h1 id="hadisTitle">Doa Doa Pendek</h1>
     <p id="hadisContent">Pilih Doa di atas</p>
-    <p id="hadisContent1"></p>
+    <p id="hadisContent1">Sering lah membaca</p>
   </div>
 
   <script>
@@ -231,9 +231,9 @@
         document.getElementById('hadisContent').innerText = hadis.content;
         document.getElementById('hadisContent1').innerText = hadis.content1;
       } else {
-        document.getElementById('hadisTitle').innerText = 'Pilih Hadis';
-        document.getElementById('hadisContent').innerText = 'Silakan pilih hadis dari daftar di atas untuk melihat isinya.';
-        document.getElementById('hadisContent1').innerText = 'Silakan pilih hadis dari daftar di atas untuk melihat isinya.';
+        document.getElementById('hadisTitle').innerText = 'Pilih Doa';
+        document.getElementById('hadisContent').innerText = '';
+        document.getElementById('hadisContent1').innerText = '';
       }
     }
   </script>
