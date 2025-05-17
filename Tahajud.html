@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tahajud</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    #babImage {
+      max-width: 100%;
+      margin-top: 1rem;
+      display: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="isi">
+    <button class="back-btn" onclick="history.back()">Kembali</button>
+  </div>
+
+  <div class="select-container">
+    <label for="babSelect">Pilih Bab:</label>
+    <select id="babSelect" onchange="showBab(this.value)">
+      <option value="">-- Pilih Bab --</option>
+      <option value="1">Pengertian</option>
+      <option value="2">Niat sholat Tahajud</option>
+      <option value="3">Keajaiban sholat tahajud</option>
+      <option value="4">Hadits tentang sholat tahajud</option>
+      <option value="5">Doa selesai sholat tahajud</option>
+    </select>
+  </div>
+
+  <div class="kelompok">
+    <h1 id="babTitle">` TATA CARA SHOLAT JENAZAH `</h1>
+    <p id="babContent">Pilih Bab Di Atas:</p>
+    <p id="babContent1"></p>
+    <ul id="babPoints"></ul>
+    <img id="babImage" src="" alt="Gambar Bab" />
+    <p id="babContent2"></p>
+  </div>
+
+  <script>
+    function showBab(id) {
+      let title = '';
+      let content = '';
+      let content1 = '';
+      let content2 = '';
+      let points = [];
+      let imageSrc = '';
+
+      if (id === '1') {
+        title = 'Sholat Tahajud';
+        content = 'Sholat Tahajud adalah sholat sunnah yang dikerjakan di malam hari setelah bangun tidur. Secara bahasa, "tahajud" berarti berupaya melawan atau meninggalkan tidur. Dalam praktik, sholat Tahajud dilakukan pada malam hari setelah sholat Isya hingga terbit fajar, khususnya di sepertiga malam terakhir, yaitu antara tengah malam hingga menjelang sholat Subuh. ' ;
+        content1 = '';
+      } else if (id === '2') {
+        title = 'Niat sholat Tahajud';
+        content = 'Niat sholat Tahajud adalah: "Ushalli sunnatat tahajjudi rak"ataini mustaqbilal qiblati lillahi taala" (Aku berniat shalat sunnah Tahajud dua rakaat, menghadap kiblat, karena Allah taala). ';
+      } else if (id === '3') {
+        title = ' Keajaiban sholat tahajud :';
+        points = [
+          '1. Meningkatkan Derajat: Sholat tahajud bisa meningkatkan derajat seseorang di mata Allah SWT. ”',
+          '2. Membuka Pintu Rezeki: Sholat tahajud bisa menjadi sarana untuk membuka pintu rezeki. ',
+          '3. Mendekatkan Diri kepada Allah SWT: Sholat tahajud bisa mendekatkan diri kepada Allah SWT dan membuat kita lebih leluasa untuk mencurahkan hati kepada-Nya.  ',
+          '4. Menghapus Dosa dan Menghindarkan dari Kemaksiatan: Sholat tahajud bisa menghapus dosa-dosa dan menghindarkan dari perbuatan kemaksiata ',
+          '5. Memberikan Cahaya di Hari Kiamat: Sholat tahajud bisa memberikan cahaya di Hari Kiamat.  ',
+          '6. Mempertebal Keimanan: Sholat tahajud bisa mempertebal keimanan seseorang.  ',
+          '7. Mendapat Pahala Berlimpah: Sholat tahajud bisa mendatangkan pahala yang berlimpah. ',
+          '8. Waktu Mustajab untuk Berdoa: Sholat tahajud merupakan waktu yang mustajab (dengar) untuk berdoa.  ',
+          '9. Terhindar dari Penyakit: Sholat tahajud dapat membantu mengurangi stres yang bisa menjadi pemicu berbagai penyakit. ',
+          '10. Kemuliaan dan Kewibawaan: Orang yang rutin melakukan sholat tahajud akan mendapatkan kemuliaan dan kewibawaan di tengah masyarakat. ',
+        ];
+      }
+        else if (id === '4') {
+        title = ' Takbir ketiga Mendoakan jenazah';
+        content = 'Dari Jabir bin Abdillah ra, Rasulullah SAW bersabda: “Sesungguhnya di dalam malam itu ada satu waktu, jika seorang muslim memohon kepada Allah kebaikan dunia dan akhirat, niscaya Allah akan mengabulkannya.';
+      }
+        else if (id === '5') {
+        title = ' Doa selesai sholat tahajud';
+        content = '"Allahumma rabbana lakal hamdu. Anta qayyimus samawati wal ardhi wa man fii hinna. Wa lakal hamdu anta malikus samawati wal ardhi wa man fii hinna" ';
+        content1 = 'Artinya:"Ya Allah, Tuhan kami, bagi-Mulah segala puji. Engkaulah yang mengurus langit dan bumi serta semua makhluk yang ada pada keduanya. Dan bagi-Mu segala puji, Engkau Raja langit dan bumi beserta semua makhluk yang ada pada keduanya." ';
+      }
+
+      document.getElementById('babTitle').innerText = title;
+      document.getElementById('babContent').innerText = content;
+      document.getElementById('babContent1').innerText = content1;
+      document.getElementById('babContent2').innerText = content2;
+
+      const ul = document.getElementById('babPoints');
+      ul.innerHTML = '';
+      for (let i = 0; i < points.length; i++) {
+        const li = document.createElement('li');
+        li.innerText = points[i];
+        ul.appendChild(li);
+      }
+
+      const img = document.getElementById('babImage');
+      if (imageSrc) {
+        img.src = imageSrc;
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
