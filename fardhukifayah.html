@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Kitab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    #babImage {
+      max-width: 100%;
+      margin-top: 1rem;
+      display: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="isi">
+    <button class="back-btn" onclick="history.back()">Kembali</button>
+  </div>
+
+  <div class="select-container">
+    <label for="babSelect">Pilih Bab:</label>
+    <select id="babSelect" onchange="showBab(this.value)">
+      <option value="">-- Pilih Bab --</option>
+      <option value="1">Pengertian</option>
+      <option value="2">Takbir pertama</option>
+      <option value="3">Takbir Kedua</option>
+      <option value="4">Takbir Ketiga</option>
+      <option value="5">Takbir Ke empat</option>
+    </select>
+  </div>
+
+  <div class="kelompok">
+    <h1 id="babTitle">` TATA CARA SHOLAT JENAZAH `</h1>
+    <p id="babContent">Pilih Bab Di Atas:</p>
+    <p id="babContent1"></p>
+    <ul id="babPoints"></ul>
+    <img id="babImage" src="" alt="Gambar Bab" />
+    <p id="babContent2"></p>
+  </div>
+
+  <script>
+    function showBab(id) {
+      let title = '';
+      let content = '';
+      let content1 = '';
+      let content2 = '';
+      let points = [];
+      let imageSrc = '';
+
+      if (id === '1') {
+        title = 'Fardhu Kifayah';
+        content = 'Sholat jenazah merupakan fardhu kifayah ketika ada muslim yang meninggal Fardhu kifayah adalah kewajiban bagi umat Islam secara bersama-sama (kolektif), bukan perseorangan. Artinya, kewajiban itu gugur jika sebagian kaum muslimin sudah memenuhinya, sedangkan yang lain tidak berdosa. Namun, jika tidak ada yang melaksanakannya, maka seluruh kaum muslimin terkena dosa' ;
+        content1 = 'Sholat jenazah memiliki rukun-rukun yang wajib dipenuhi. Jika tidak, sholatnya batal dan tidak sah.Rukun sholat jenazah ada delapan, yakni:';
+        points = [
+          '1. Niat sholat jenazah.',
+          '2. Berdiri dari empat takbir.',
+          '3. Empat kali takbir',
+          '3. Sholat jenazah merupakan fardhu kifayah ketika ada muslim yang meninggal.',
+          '4. Mengangkat tangan pada saat takbir pertama',
+          '5. Membaca surat Al Fatihah',
+          '6. Membaca sholawat Nabi',
+          '7. Berdoa untuk jenazah',
+          '8. Salam',
+        ];
+        imageSrc = 'sholat.jpeg';
+      } else if (id === '2') {
+        title = 'Takbir Pertama Takbiratul ihram sambil niat Dan membaca Al-Fatihah';
+        content = 'Cara berniat adalah dengan mengingat dalam hati akan sholat jenazah empat kali takbir terhadap jenazah itu fardhu kifayah. Adapun yang perlu melafalkan niat adalah imam, sedangkan makmum cukup niat dalam hati saja.';
+        content1 = 'Berikut adalah niat sholat jenazah: ';
+        points = [
+          '1. Bacaan niat sholat jenazah bagi mayat laki-laki : Ushalli ‘ala hadzal mayyiti arba’a takbiratin fardhu kifayati (imaman/ma’muman) lillahi Ta’ala. Allahu akbar.Artinya: “Saya berniat sholat untuk mayat ini empat takbir karena menjalankan fardhu kifayah sebagai (imam/makmum) karena Allah Ta’ala. Allah Mahabesar.”',
+          '2. Bacaan niat sholat jenazah bagi mayat perempuan : Ushalli ‘ala hadzihil mayyitati arba’a takbiratin fardhu kifayati (imaman/ma’muman) lillahi Ta’ala. Allahu akbar. Artinya: “Saya berniat sholat untuk mayat ini empat takbir karena menjalankan fardhu kifayah sebagai (imam/makmum) karena Allah Ta’ala. Allah Mahabesar.”',
+        ];
+        content2 = 'Membaca surat Al-Fatihah setelah takbiratul ihram atau takbir pertama Bacaan sholat jenazah pada takbir pertama, yakni sebagai berikut: Bismillāhir-raḥmānir-raḥīm. Al-ḥamdu lillāhi rabbil-‘ālamīn. Ar-raḥmānir-raḥīm. Māliki yaumid-dīn. Iyyāka na’budu wa iyyāka nasta’īn. Ihdinaṣ-ṣirāṭal-mustaqīm. Ṣirāṭallażīna an’amta ‘alaihim. Ghairil-magḍụbi ‘alaihim. Wa laḍ-ḍāllīn.';
+        imageSrc = 'Takbir.jpeg';
+      } else if (id === '3') {
+        title = ' Takbir kedua Membaca sholawat Kepada Nabi Muhammad SAW';
+        content = 'Sholawat Nabi ini banyak bentuknya, yang paling afdhal adalah sholawat Ibrahimiyah. Berikut adalah bacaan sholawat Ibrahimiyah:';
+        content1 = 'Allahumma salli ‘ala Muhammad wa ‘ala ali Muhammad, kama sallaita ‘ala Ibrahim wa ‘ala ali Ibrahim, innaka hamidun majid. Allahumma barik ‘ala Muhammad wa ‘ala ali Muhammad, kama barakta ‘ala Ibrahim wa ‘ala ali Ibrahim, innaka hamidun majid.';
+      }
+        else if (id === '4') {
+        title = ' Takbir ketiga Mendoakan jenazah';
+        content = 'Sambil mengangkat tangan setinggi telinga atau sejajar bahu, lalu meletakkan tangan di atas pusar lagi. Lalu berdoa dengan doa untuk jenazah dan orang-orang yang ia tinggalkan.';
+        content1 = 'Berikut adalah bacaan doa untuk jenazah: Allaahummaghfir lahu warhamhu wa "aafihi wa"fu "anhu wa akrim nuzulahu wa wassi madkhalahu wa aghsilhu bimaa-in wa tsaljin wa baradin wa naqqihi minal khathaayaa kamaa yunaqqats tsaubul abyadhu minad danas, wa abdilhu daaran khairan min daarihi, wa ahlan khairan min ahlihi, wa zaujan khairan min zaujihi, wa qihi fitnatal qabri wa adzaaban naar. Wa a"udzu bika min fitnatil masihi ad-dajjal. Wa a"udzu bika min fitnatil mahya wal mamat. Wa a"udzu bika min "adzaabin qabr. Wa a"udzu bika min "adzaabin naar.';
+        content2 = 'Artinya: "Ya Allah, ampunilah dia, kasihanilah dia, berilah keselamatan dan ampunilah dosanya, muliakanlah tempat tinggalnya dan lapangkanlah tempat keluarnya, sucikanlah ia dengan air, es, dan embun, serta bersihkanlah ia dari segala dosa dan kesalahan sebagaimana Engkau telah membersihkan baju putih dari kotoran. Berilah ganti baginya tempat yang lebih baik dari tempatnya yang terdahulu, keluarga yang lebih baik dari keluarga semula, pasangan yang lebih baik dari pasangan semula, serta lindungilah ia dari fitnah kubur dan siksa neraka." (Riwayat dari Auf bin Malik, HR Muslim)';
+      }
+        else if (id === '5') {
+        title = ' Takbir keempat lalu doa untuk keluarga jenazah';
+        content = 'Sambil mengangkat tangan setinggi telinga atau sejajar bahu, lalu meletakkan tangan di atas pusar lagi. Lalu berdoa dengan doa untuk jenazah dan orang-orang yang ia tinggalkan.';
+        content1 = 'adapun bacaan doa untuk keluarga jenazah: (Allohumma laa tahrimnaa ajrohaa wa laa taftinnaa ba’dahaa waghfirlanaa walahaa)';
+        content2 = 'Artinya: "Ya Allah, janganlah Engkau haramkan kami mendapatkan pahala dari amalnya dan janganlah Engkau sesatkan kami setelahnya. Ampunilah kami dan dia."';
+      }
+
+      document.getElementById('babTitle').innerText = title;
+      document.getElementById('babContent').innerText = content;
+      document.getElementById('babContent1').innerText = content1;
+      document.getElementById('babContent2').innerText = content2;
+
+      const ul = document.getElementById('babPoints');
+      ul.innerHTML = '';
+      for (let i = 0; i < points.length; i++) {
+        const li = document.createElement('li');
+        li.innerText = points[i];
+        ul.appendChild(li);
+      }
+
+      const img = document.getElementById('babImage');
+      if (imageSrc) {
+        img.src = imageSrc;
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
