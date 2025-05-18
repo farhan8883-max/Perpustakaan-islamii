@@ -247,6 +247,7 @@
 
   <header>
     <h1>🕋Perpustakaan Islam Digital</h1>
+    <h2>Selamat datang, <span id="userWelcome"></span>!</h2>
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="🔍Cari nama kitab di sini...">
       <button onclick="filterBooks()">Cari</button>
@@ -255,6 +256,7 @@
      <div class="menu" id="menu">
        <a href="login.html">Login 🔐</a>
        <a href="register.html">Regitrasi</a>
+       <button id="logoutBtn">Logout</button>
      </div>
      <div id="welcomeModal" class="modal-overlay">
      <div class="modal-content">
@@ -299,22 +301,22 @@
   { id: 6, title: 'Fardhu kifayah', category: 'Praktek', file: 'fardhukifayah.html' },
   { id: 7, title: 'Tijan Darori', category: 'aqidah', file: 'tijandarori.html' },
   { id: 8, title: 'Fahtul izhar', category: 'fiqh', file: 'Eror.html' },
-  // { id: 9, title: 'Sullam al-Taufiq', category: 'fiqh', file: 'Eror.html' },
-  // { id: 10, title: 'Tuhfatu al-Tullab ', category: 'fiqh', file: 'Eror.html' },
-  // { id: 11, title: 'Fathul Wahhab ', category: 'fiqh', file: 'Eror.html' },
-  // { id: 12, title: 'Doa harian ', category: 'doa', file: 'doa.html' },
-  // { id: 13, title: 'Sholat Tasbih', category: 'Praktek', file: 'Eror.html' },
-  // { id: 14, title: 'sholat Taubat', category: 'Praktek', file: 'Eror.html' },
-  // { id: 15, title: 'Sholat Hajat', category: 'Praktek', file: 'Eror.html' },
-  // { id: 16, title: 'Sholat Dhuha', category: 'Praktek', file: 'Eror.html' },
-  // { id: 17, title: 'Sholat Witir', category: 'Praktek', file: 'Eror.html' },
-  // { id: 18, title: 'Sholat Tahjud', category: 'Praktek', file: 'Tahajud.html' },
-  // { id: 19, title: 'Sholat Tarawih', category: 'Praktek', file: 'Eror.html' },
-  // { id: 20, title: 'Sholat Idul Fitri', category: 'Praktek', file: 'Eror.html' },
-  // { id: 21, title: 'Sholat Idul Adha', category: 'Praktek', file: 'Eror.html' },
-  // { id: 22, title: 'Sholat Khusuf', category: 'Praktek', file: 'Eror.html' },
-  // { id: 23, title: 'Sholat Kusuf', category: 'Praktek', file: 'Eror.html' },
-  // { id: 24, title: 'Sholat Istisqa', category: 'Praktek', file: 'Eror.html' }
+  { id: 9, title: 'Sullam al-Taufiq', category: 'fiqh', file: 'Eror.html' },
+  { id: 10, title: 'Tuhfatu al-Tullab ', category: 'fiqh', file: 'Eror.html' },
+  { id: 11, title: 'Fathul Wahhab ', category: 'fiqh', file: 'Eror.html' },
+  { id: 12, title: 'Doa harian ', category: 'doa', file: 'doa.html' },
+  { id: 13, title: 'Sholat Tasbih', category: 'Praktek', file: 'Eror.html' },
+  { id: 14, title: 'sholat Taubat', category: 'Praktek', file: 'Eror.html' },
+  { id: 15, title: 'Sholat Hajat', category: 'Praktek', file: 'Eror.html' },
+  { id: 16, title: 'Sholat Dhuha', category: 'Praktek', file: 'Eror.html' },
+  { id: 17, title: 'Sholat Witir', category: 'Praktek', file: 'Eror.html' },
+  { id: 18, title: 'Sholat Tahjud', category: 'Praktek', file: 'Tahajud.html' },
+  { id: 19, title: 'Sholat Tarawih', category: 'Praktek', file: 'Eror.html' },
+  { id: 20, title: 'Sholat Idul Fitri', category: 'Praktek', file: 'Eror.html' },
+  { id: 21, title: 'Sholat Idul Adha', category: 'Praktek', file: 'Eror.html' },
+  { id: 22, title: 'Sholat Khusuf', category: 'Praktek', file: 'Eror.html' },
+  { id: 23, title: 'Sholat Kusuf', category: 'Praktek', file: 'Eror.html' },
+  { id: 24, title: 'Sholat Istisqa', category: 'Praktek', file: 'Eror.html' }
 
 ];
 
@@ -385,6 +387,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 300);
   });
 });
+
+ // Cek login
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) {
+      window.location.href = 'index.html'; // Redirect ke login
+    } else {
+      document.getElementById('userWelcome').textContent = loggedInUser;
+    }
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', function () {
+      localStorage.removeItem('loggedInUser');
+      window.location.href = 'index.html';
+    });
 
   </script>
 
