@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f1f1f1;
+  background: #014d0b;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -32,7 +32,7 @@ input {
 }
 
 button {
-  background: #007BFF;
+  background: #014d0b;
   color: #fff;
   padding: 10px;
   border: none;
@@ -41,7 +41,7 @@ button {
 }
 
 button:hover {
-  background: #0056b3;
+  background: rgb(0, 179, 15);
 }
 
 p {
