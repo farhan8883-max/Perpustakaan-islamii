@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Kitab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b170a;
+      color: #fff;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .back-btn {
+      background-color: #f5a623;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .select-container {
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .kelompok {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    iframe {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    #videoContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .isi {
+      text-align: right;
+      margin-bottom: 2rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="isi">
+    <button class="back-btn" onclick="history.back()">Kembali</button>
+  </div>
+
+  <div class="select-container">
+    <label for="babSelect">Pilih Bab:</label>
+    <select id="babSelect" onchange="showBab(this.value)">
+      <option value="">-- Pilih Bab --</option>
+      <option value="1">Ustad Abdul Shomad</option>
+      <option value="2">Buya yahya</option>
+      <option value="3">Ustad Hanan Attaqi</option>
+      <option value="4">Ustad Felix siauw</option>
+      <option value="5">Ustad Agus Yusuf Subhani</option>
+      <option value="6">Ustad Adi hidayat</option>
+    </select>
+  </div>
+
+  <div class="kelompok">
+    <h1 id="babTitle">Pilih Bab</h1>
+    <div id="videoContainer"></div>
+  </div>
+
+  <script>
+    function showBab(id) {
+      const babData = {
+        '1': {
+          title: 'Ceramah Ustad Abdul Shomad',
+          videos: [
+            'https://www.youtube.com/embed/Gjgpm3BOuhw',
+            'https://www.youtube.com/embed/oycS2Cknxug',
+            'https://www.youtube.com/embed/x3eAVMnBhxY',
+            'https://www.youtube.com/embed/QvgnZB0-k4c'
+          ]
+        },
+        '2': {
+          title: 'Ceramah Buya Yahya',
+          videos: [
+            'https://www.youtube.com/embed/r5DHnodVqz8',
+            'https://www.youtube.com/embed/tqadhXUp7Nk',
+            'https://www.youtube.com/embed/GRg5RpnsnY0',
+            'https://www.youtube.com/embed/hKGVRRtbvxk'
+          ]
+        },
+        '3': {
+          title: 'Ceramah Ustad Hanan Attaqi',
+          videos: [
+            'https://www.youtube.com/embed/If2BllirkzI',
+            'https://www.youtube.com/embed/xARIIj8mZlc',
+            'https://www.youtube.com/embed/uOrkRMWKqIk',
+            'https://www.youtube.com/embed/rA1SWLyD_Sw'
+          ]
+        },
+        '4': {
+          title: 'Ceramah Ustad Felix siauw',
+          videos: [
+            'https://www.youtube.com/embed/zdtJSSlw5c8',
+            'https://www.youtube.com/embed/39w6yJGLNEY',
+            'https://www.youtube.com/embed/SixoYdftuic',
+            'https://www.youtube.com/embed/ERggObF7xF4'
+          ]
+        },
+        '5': {
+          title: 'Ceramah Ustad Agus Yusuf Subhani',
+          videos: [
+            'https://www.youtube.com/embed/Hkyp_Qkw1K0',
+            'https://www.youtube.com/embed/ABKW-rLmqS8',
+            'https://www.youtube.com/embed/6itZWgN8UOc',
+            'https://www.youtube.com/embed/NplehI5K7oA'
+          ]
+        },
+        '6': {
+          title: 'Ceramah Ustad Adi hidayat ',
+          videos: [
+            'https://www.youtube.com/embed/sX-kePnlgy4',
+            'https://www.youtube.com/embed/My3b6OZ1adE',
+            'https://www.youtube.com/embed/UJGsfLa8dmE',
+            'https://www.youtube.com/embed/DHP70hiNCQQ'
+          ]
+        }
+      };
+
+      const selectedBab = babData[id];
+
+      if (selectedBab) {
+        document.getElementById('babTitle').innerText = selectedBab.title;
+
+        const videoContainer = document.getElementById('videoContainer');
+        videoContainer.innerHTML = '';
+
+        selectedBab.videos.forEach(videoUrl => {
+          const iframe = document.createElement('iframe');
+          iframe.src = videoUrl;
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          videoContainer.appendChild(iframe);
+        });
+      } else {
+        document.getElementById('babTitle').innerText = 'Pilih Bab';
+        document.getElementById('videoContainer').innerHTML = '';
+      }
+    }
+  </script>
+</body>
+</html>
