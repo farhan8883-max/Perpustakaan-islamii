@@ -8,14 +8,21 @@
 </head>
 <body>
   <div class="container">
-    <h2>Register</h2>
+    <img src="حِبر___logo_design-removebg-preview.png" alt="Spotify Logo">
+    <div class="tabs">
+      <span><a href="login.html">LOGIN USER</a></span>
+      <span class="active" id="signInTab">REGISTER USER</span>
+    </div>
     <form id="registerForm">
       <input type="text" id="regUsername" placeholder="Username" required />
       <input type="password" id="regPassword" placeholder="Password" required />
-      <button type="submit">Register</button>
+      <button type="submit" class="login-btn">Register</button>
     </form>
-    <p>Sudah punya akun? <a href="login.html">Login di sini</a></p>
-    <p>Kembali ke Halaman  <a href="index.html">Kembali</a></p>
+    <div class="checkbox-container" id="stayBox">
+        <input type="checkbox" id="stay">
+        <label for="stay">stay signed in</label>
+      </div>
+    <div class="forgot" id="forgot"><a href="index.html">GO BACK??</a></div>
   </div>
   <script src="script.js"></script>
 </body>
