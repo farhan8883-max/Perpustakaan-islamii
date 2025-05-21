@@ -1,49 +1,112 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #014d0b;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
+* { box-sizing: border-box; }
 
-.container {
-  background: #fff;
-  padding: 2em;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  width: 300px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://i.ibb.co/GM65K7m/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
 
-h2 {
-  text-align: center;
-}
+    .container {
+      background-color: #1e1e1e;
+      padding: 40px 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 360px;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
+    .container img {
+      display: block;
+      margin: 0 auto 15px;
+      width: 48px;
+    }
 
-input {
-  margin-bottom: 1em;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
 
-button {
-  background: #014d0b;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .tabs span {
+      margin: 0 12px;
+      padding-bottom: 4px;
+      cursor: pointer;
+    }
 
-button:hover {
-  background: rgb(0, 179, 15);
-}
+    .tabs .active {
+      border-bottom: 2px solid #379c1a;
+    }
 
-p {
-  text-align: center;
-}
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 25px;
+      margin: 12px 0;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      margin: 10px 0 20px;
+    }
+
+    .checkbox-container input {
+      margin-right: 8px;
+    }
+
+    .login-btn {
+      width: 100%;
+      background-color: #2f4e26;
+      border: none;
+      padding: 14px;
+      border-radius: 25px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .login-btn:hover {
+      background-color: #379c1a;
+    }
+
+    .forgot {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #aaa;
+      cursor: pointer;
+    }
+    .forgot a{
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .forgot:hover {
+      text-decoration: underline;
+    }
+    .tabs span a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 400px) {
+      .login-box { padding: 30px 20px; }
+      .tabs span { margin: 0 8px; font-size: 14px; }
+      input[type="text"],
+      input[type="password"] { padding: 12px; font-size: 13px; }
+      .login-btn { padding: 12px; font-size: 14px; }
+    }
