@@ -3,8 +3,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                  url('https://i.ibb.co/GM65K7m/bg.jpg') no-repeat center center fixed;
+      background-color: #379c1a;
       background-size: cover;
       display: flex;
       justify-content: center;
